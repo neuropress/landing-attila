@@ -24,6 +24,21 @@
 	animation: blob-orbit 6s ease-in-out infinite;
 }
 
+@keyframes slide-in-from-left {
+	from {
+		transform: translateX(-20%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0%);
+		opacity: 1;
+	}
+}
+
+.animate-slide-in-from-left {
+	animation: slide-in-from-left 2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 /* Gotham Font Faces */
 @font-face {
 	font-family: "Gotham";

@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import AnimatedContent from "./gsap/AnimatedContent";
+import FadeContent from "./gsap/FadeContent";
 
 const cards = [
 	{
@@ -52,14 +54,18 @@ const Prices = () => {
 	return (
 		<section className="w-full py-20 bg-primary-light" id="pricing">
 			<div className="max-w-7xl mx-auto px-4 md:px-8">
-				<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
-					Áraink
-				</h2>
-				<p className="text-lg font-light text-gray-500 text-center mb-16 w-full lg:w-1/2 mx-auto">
-					Áraink 2026. február 1. napjától érvényesek!
-				</p>
+				<AnimatedContent distance={40} duration={0.7} threshold={0.3}>
+					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
+						Áraink
+					</h2>
+				</AnimatedContent>
+				<AnimatedContent distance={30} duration={0.7} delay={0.15} threshold={0.3}>
+					<p className="text-lg font-light text-gray-500 text-center mb-16 w-full lg:w-1/2 mx-auto">
+						Áraink 2026. február 1. napjától érvényesek!
+					</p>
+				</AnimatedContent>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<FadeContent duration={800} delay={300} threshold={0.2} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 					{cards.map((card, index) => (
 						<div
 							key={index}
@@ -101,7 +107,7 @@ const Prices = () => {
 							</button>
 						</div>
 					))}
-				</div>
+				</FadeContent>
 			</div>
 		</section>
 	);

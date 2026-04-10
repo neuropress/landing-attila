@@ -1,4 +1,7 @@
+"use client";
 import Image from "next/image";
+import AnimatedContent from "./gsap/AnimatedContent";
+import ScrollStack, { ScrollStackItem } from "./gsap/ScrollStack";
 
 const blocks = [
 	{
@@ -35,25 +38,43 @@ const blocks = [
 
 const AboutCure = () => {
 	return (
-		<section className="w-full py-20 bg-white">
-			<div className="max-w-7xl mx-auto px-4 md:px-8">
-				<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center w-full lg:w-3/4 mx-auto">
-					Miért jobb a Neuropress terápia, mint egy hagyományos reflexológiai
-					kezelés?
-				</h2>
-				<p className="text-lg md:text-xl text-gray-700 mb-16 font-light text-center w-full lg:w-3/4 mx-auto">
-					A Neuropress nem csak reflexológia: komplexen vizsgáljuk a tested és
-					idegrendszered, hogy személyre szabott, tartós javulást hozó terápiát
-					nyújtsunk.
-				</p>
+		<section className="w-full bg-white">
+			<div className="max-w-7xl mx-auto px-4 md:px-8 pt-20">
+				<AnimatedContent
+					distance={40}
+					duration={0.7}
+					threshold={0.3}
+					className="w-full">
+					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center w-full lg:w-3/4 mx-auto">
+						Miért jobb a Neuropress terápia, mint egy hagyományos reflexológiai
+						kezelés?
+					</h2>
+					<p className="text-lg md:text-xl text-gray-700 mb-4 font-light text-center w-full lg:w-3/4 mx-auto">
+						A Neuropress nem csak reflexológia: komplexen vizsgáljuk a tested és
+						idegrendszered, hogy személyre szabott, tartós javulást hozó
+						terápiát nyújtsunk.
+					</p>
+				</AnimatedContent>
+			</div>
 
-				<div className="flex flex-col gap-8">
-					{blocks.map((block, index) => (
+			<ScrollStack
+				useWindowScroll
+				innerClassName="px-4 sm:px-6 lg:px-20 max-w-7xl mx-auto"
+				bottomPadding="pb-[50vh]"
+				itemDistance={70}
+				itemScale={0.03}
+				itemStackDistance={18}
+				stackPosition="35%"
+				scaleEndPosition="30%"
+				baseScale={0.9}>
+				{blocks.map((block, index) => (
+					<ScrollStackItem
+						key={index}
+						itemClassName="!p-0 !h-auto overflow-hidden">
 						<div
-							key={index}
-							className={`flex flex-col ${block.imageRight ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-8 bg-primary-light rounded-2xl overflow-hidden border-l-4 ${block.borderColor} shadow-sm`}>
-							{/* Image */}
-							<div className="relative w-full lg:w-2/5 h-64 lg:h-80 shrink-0">
+							className={`flex flex-col ${block.imageRight ? "lg:flex-row" : "lg:flex-row-reverse"} bg-primary-light border-l-4 ${block.borderColor}`}>
+							{/* Image — top on mobile, side panel on desktop */}
+							<div className="relative w-full h-52 lg:w-2/5 lg:h-auto lg:min-h-72 shrink-0">
 								<Image
 									src={block.image}
 									alt={block.imageAlt}
@@ -63,7 +84,7 @@ const AboutCure = () => {
 							</div>
 
 							{/* Text */}
-							<div className="flex flex-col justify-center px-8 py-8 lg:py-0 lg:pr-10 lg:pl-4">
+							<div className="flex flex-col justify-center p-6 sm:p-8 lg:p-12">
 								<span
 									className={`text-xs font-medium uppercase tracking-widest mb-3 ${block.tagColor}`}>
 									{block.tag}
@@ -76,9 +97,9 @@ const AboutCure = () => {
 								</p>
 							</div>
 						</div>
-					))}
-				</div>
-			</div>
+					</ScrollStackItem>
+				))}
+			</ScrollStack>
 		</section>
 	);
 };

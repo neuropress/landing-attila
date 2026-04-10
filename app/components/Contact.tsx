@@ -1,5 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import AnimatedContent from "./gsap/AnimatedContent";
+import FadeContent from "./gsap/FadeContent";
 
 const therapyOptions = [
 	"Neuropress állapotfelmérés",
@@ -125,17 +127,33 @@ const Contact = () => {
 	return (
 		<section id="contact" className="w-full py-20 bg-white">
 			<div className="max-w-7xl mx-auto px-4 md:px-8">
-				<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
-					Vedd fel velünk a kapcsolatot!
-				</h2>
-				<p className="text-lg font-light text-gray-500 text-center mb-16 w-full lg:w-1/2 mx-auto">
-					Töltsd ki az űrlapot és hamarosan felvesszük veled a kapcsolatot az
-					időpontegyeztetés érdekében.
-				</p>
+				<AnimatedContent
+					distance={40}
+					duration={0.7}
+					threshold={0.3}
+					className="w-full">
+					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
+						Vedd fel velünk a kapcsolatot!
+					</h2>
+				</AnimatedContent>
+				<AnimatedContent
+					distance={40}
+					duration={0.7}
+					threshold={0.3}
+					className="w-full">
+					<p className="text-lg font-light text-gray-500 text-center mb-16 w-full lg:w-1/2 mx-auto">
+						Töltsd ki az űrlapot és hamarosan felvesszük veled a kapcsolatot az
+						időpontegyeztetés érdekében.
+					</p>
+				</AnimatedContent>
 
 				<div className="flex flex-col lg:flex-row gap-10 items-start">
 					{/* Left: contact info */}
-					<div className="w-full lg:w-2/5 bg-primary-light rounded-2xl p-8 flex flex-col gap-8">
+					<AnimatedContent
+						distance={40}
+						duration={0.7}
+						threshold={0.3}
+						className="w-full lg:w-2/5 bg-primary-light rounded-2xl p-8 flex flex-col gap-8">
 						<div>
 							<h3 className="text-lg font-medium text-gray-900 mb-6">
 								Elérhetőségeink
@@ -187,10 +205,10 @@ const Contact = () => {
 								))}
 							</div>
 						</div>
-					</div>
+					</AnimatedContent>
 
 					{/* Right: form */}
-					<div className="w-full lg:flex-1">
+					<FadeContent className="w-full lg:flex-1">
 						{submitted ? (
 							<div className="h-full flex flex-col items-center justify-center text-center py-16 gap-4">
 								<div className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center mb-2">
@@ -326,7 +344,7 @@ const Contact = () => {
 								</button>
 							</form>
 						)}
-					</div>
+					</FadeContent>
 				</div>
 			</div>
 		</section>
