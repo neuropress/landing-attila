@@ -11,7 +11,7 @@ import Contact from "./components/Contact";
 
 export default function Home() {
 	return (
-		<div className="relative z-10">
+		<main className="relative z-10">
 			<Hero />
 			<Symptoms />
 			<Stories />
@@ -21,6 +21,6 @@ export default function Home() {
 			<AboutCure />
 			<Testimonials />
 			<Contact />
-		</div>
+		</main>
 	);
 }

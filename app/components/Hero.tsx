@@ -14,7 +14,7 @@ const Hero = () => {
 					komplex terápia
 				</p>
 				<div>
-					<a href="#" className="primary-button inline-block">
+					<a href="#contact" className="primary-button inline-block">
 						Jelentkezem állapotfelmérésre!
 					</a>
 				</div>
@@ -24,7 +24,7 @@ const Hero = () => {
 				aria-hidden="true">
 				<Image
 					src="/images/attila.webp"
-					alt="Decorative"
+					alt="Vargha Attila, a Neuropress Terápia alapítója"
 					className="w-[130%] h-[130%] object-cover object-center rotate-[12deg] left-[-15%] top-[20%] absolute"
 					draggable="false"
 					style={{ pointerEvents: "none", userSelect: "none" }}

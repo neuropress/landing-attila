@@ -3,7 +3,7 @@ import Image from "next/image";
 const testimonials = [
 	{
 		name: "Kovács Anna",
-		profileImage: "/testimonials/anna.jpg",
+		profileImage: "/images/profile.webp",
 		symptom: "Migrén és alvászavar",
 		solution:
 			"A Neuropress terápia után jelentős javulást tapasztaltam a migrénes fejfájásaimban, és az alvásom is sokkal pihentetőbb lett. Az életminőségem drámaian javult, és újra élvezhetem a mindennapokat fájdalom nélkül.",
@@ -11,7 +11,7 @@ const testimonials = [
 	},
 	{
 		name: "Nagy Péter",
-		profileImage: "/testimonials/peter.jpg",
+		profileImage: "/images/profile.webp",
 		symptom: "Stressz és szorongás",
 		solution:
 			"A Neuropress komplex megközelítése segített nekem abban, hogy jobban kezeljem a stresszt és a szorongást. Az életmódbeli tanácsok és a terápiás kezelések együttesen hozzájárultak ahhoz, hogy kiegyensúlyozottabbá váljak.",
@@ -19,7 +19,7 @@ const testimonials = [
 	},
 	{
 		name: "Szabó Eszter",
-		profileImage: "/testimonials/eszter.jpg",
+		profileImage: "/images/profile.webp",
 		symptom: "Energiahiány és koncentrációs nehézségek",
 		solution:
 			"A Neuropress terápia után sokkal energikusabbnak érzem magam, és a koncentrációs képességem is jelentősen javult. Az életmódbeli tanácsok segítettek abban, hogy egészségesebb szokásokat alakítsak ki.",
@@ -27,7 +27,7 @@ const testimonials = [
 	},
 	{
 		name: "Tóth László",
-		profileImage: "/testimonials/laszlo.jpg",
+		profileImage: "/images/profile.webp",
 		symptom: "Izom- és ízületi fájdalom",
 		solution:
 			"A Neuropress terápia során tapasztaltam a legnagyobb javulást az izom- és ízületi fájdalmaimban. A kezelések és a tanácsok együttesen segítettek abban, hogy újra szabadon mozoghassak.",

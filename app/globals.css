@@ -113,8 +113,6 @@
 	font-style: italic;
 	font-display: swap;
 }
-@import "tailwindcss";
-
 /********** Global Styles **********/
 
 html {
