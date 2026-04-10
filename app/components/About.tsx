@@ -3,37 +3,11 @@ const About = () => {
 	return (
 		<section className="w-full bg-white py-20" id="about">
 			<div className="max-w-7xl mx-auto px-4 md:px-8">
-				<div className="flex flex-col lg:flex-row items-start gap-12">
-					<div className="bg-white">
-						<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-start w-full">
-							Ki áll a terápia mögött?
-						</h2>
-						<p className="text-md md:text-lg text-gray-700 mb-12 font-light text-start w-full">
-							Németországban nevelkedtem, majd ott végeztem közgazdasági szakon.
-							Életem során mindig érdekelt az egészség és az azzal kapcsolatos
-							témakörök, hozzá tartozó kutatások, új irányok és lehetőségek.{" "}
-							<br />
-							2001-ben Magyarországra költöztem és a családi vállalkozásba
-							beléptem, ahol Édesapám ennek a terápiának az alapjait kidolgozta
-							és sikeresen alkalmazta. A terápia alapfilozófiája magával
-							ragadott és az eredményei meggyőztek, így egyértelmű volt
-							számomra, hogy ez az, amivel foglalkozni szeretnék, ezt szeretném
-							tovább vinni, fejleszteni és kutatni. <br />
-							Időközben elvégeztem a természetgyógyászati iskolát reflexológiai
-							szakképesítéssel. Tudásomat többek között bővítettem funkcionális
-							táplálkozási- és hormonegyensúly tanácsadó képesítéssel.
-							<br /> A gyógyítás ezen, területe vált számomra életfeladattá,
-							melyet és emellett magamat is folyamatosan képzem és fejlesztem.
-							Nincs nagyobb elismerés és motiváció számomra, mint a hozzánk
-							forduló pácienseink gyógyulásának öröme. <br />
-							Fontos számomra az egészségtudatos életmód, mint testileg,
-							szellemileg és lelkileg. Bízom benne, hogy gyermekem is
-							továbbviszi örökségét és szeretném kisgyerekes Édesapaként, hogy
-							fiam büszke legyen Rám, és amit csinálok minden tekintetben
-							példaértékű legyen.
-						</p>
-					</div>
-					<div className="shrink-0 w-full max-w-sm bg-primary-light rounded-2xl p-8 flex flex-col items-start text-start">
+				<div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 items-start">
+					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 text-start w-full">
+						Ki áll a terápia mögött?
+					</h2>
+					<div className="lg:row-span-2 shrink-0 w-full max-w-sm bg-primary-light rounded-2xl p-8 flex flex-col items-start text-start">
 						<div className="relative w-20 h-20 rounded-full overflow-hidden mb-6 shadow-md">
 							<Image
 								src="/images/attila.webp"
@@ -57,6 +31,30 @@ const About = () => {
 							Alapító, Neuropress terapeuta
 						</p>
 					</div>
+					<p className="text-md md:text-lg text-gray-700 font-light text-start w-full">
+						Németországban nevelkedtem, majd ott végeztem közgazdasági szakon.
+						Életem során mindig érdekelt az egészség és az azzal kapcsolatos
+						témakörök, hozzá tartozó kutatások, új irányok és lehetőségek.{" "}
+						<br />
+						2001-ben Magyarországra költöztem és a családi vállalkozásba
+						beléptem, ahol Édesapám ennek a terápiának az alapjait kidolgozta
+						és sikeresen alkalmazta. A terápia alapfilozófiája magával
+						ragadott és az eredményei meggyőztek, így egyértelmű volt
+						számomra, hogy ez az, amivel foglalkozni szeretnék, ezt szeretném
+						tovább vinni, fejleszteni és kutatni. <br />
+						Időközben elvégeztem a természetgyógyászati iskolát reflexológiai
+						szakképesítéssel. Tudásomat többek között bővítettem funkcionális
+						táplálkozási- és hormonegyensúly tanácsadó képesítéssel.
+						<br /> A gyógyítás ezen, területe vált számomra életfeladattá,
+						melyet és emellett magamat is folyamatosan képzem és fejlesztem.
+						Nincs nagyobb elismerés és motiváció számomra, mint a hozzánk
+						forduló pácienseink gyógyulásának öröme. <br />
+						Fontos számomra az egészségtudatos életmód, mint testileg,
+						szellemileg és lelkileg. Bízom benne, hogy gyermekem is
+						továbbviszi örökségét és szeretném kisgyerekes Édesapaként, hogy
+						fiam büszke legyen Rám, és amit csinálok minden tekintetben
+						példaértékű legyen.
+					</p>
 				</div>
 			</div>
 		</section>

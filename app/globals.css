@@ -2,6 +2,28 @@
 @import "swiper/css";
 @import "swiper/css/navigation";
 
+@keyframes blob-orbit {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	25% {
+		transform: translate(140px, -125px);
+	}
+	50% {
+		transform: translate(0px, -150px);
+	}
+	75% {
+		transform: translate(-140px, -125px);
+	}
+	100% {
+		transform: translate(0px, 0px);
+	}
+}
+
+.animate-blob-orbit {
+	animation: blob-orbit 6s ease-in-out infinite;
+}
+
 /* Gotham Font Faces */
 @font-face {
 	font-family: "Gotham";

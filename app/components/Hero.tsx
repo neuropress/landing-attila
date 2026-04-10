@@ -5,7 +5,7 @@ const Hero = () => {
 	return (
 		<div className="min-h-screen flex flex-col bg-primary-light justify-center items-start relative overflow-hidden">
 			<div className="max-w-7xl mx-auto flex flex-col text-left px-8 md:px-0 z-10 w-full md:w-2/5 md:ml-8 lg:ml-20 xl:ml-32 mt-20 md:mt-0">
-				<h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+				<h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
 					Feltárjuk szűnni nem akaró kellemetlen tüneteid okait és célzottan
 					kezeljük azokat!
 				</h1>
@@ -19,6 +19,11 @@ const Hero = () => {
 					</a>
 				</div>
 			</div>
+			{/* Mobile decorative blob */}
+			<div
+				className="sm:hidden absolute bg-primary rounded-full w-140 h-140 -right-110 -top-0 blur-3xl opacity-40 animate-blob-orbit"
+				aria-hidden="true"
+			/>
 			<div
 				className="hidden sm:block absolute bg-primary rounded-[100px] w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px]  right-[-60px] md:right-[-80px] lg:right-[-100px]  top-[-120px] md:top-[-160px] lg:top-[-200px]  rotate-[-12deg] overflow-hidden"
 				aria-hidden="true">
