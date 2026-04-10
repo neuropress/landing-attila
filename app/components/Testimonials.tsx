@@ -1,4 +1,7 @@
+"use client";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 
 const testimonials = [
 	{
@@ -35,6 +38,9 @@ const testimonials = [
 	},
 ];
 
+const SLIDES_PER_VIEW_DESKTOP = 3;
+const showArrows = testimonials.length > SLIDES_PER_VIEW_DESKTOP;
+
 const Stars = ({ count }: { count: number }) => (
 	<div className="flex gap-0.5 justify-center">
 		{Array.from({ length: 5 }).map((_, i) => (
@@ -58,51 +64,107 @@ const Testimonials = () => {
 				</h2>
 				<p className="text-lg md:text-xl text-gray-700 mb-12 font-light text-center w-full lg:w-3/4 mx-auto">
 					Olvasd el, hogyan változtatta meg a Neuropress terápia a hozzánk
-					fordulók életét, és hogyan szabadultak meg kellemetlen tüneteiktől.
+					fordulók életét, és hogyan szabadultak meg kellemetlen tünetektől.
 				</p>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-					{testimonials.map((testimonial, index) => (
-						<div
-							key={index}
-							className="bg-white rounded-2xl p-6 flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
-							{/* Quote mark */}
-							<div className="text-4xl leading-none text-(--primary-color) font-serif mb-3 select-none">
-								&ldquo;
-							</div>
+				<div className="relative testimonials-swiper -mx-2 px-2 py-3 -my-3">
+					<Swiper
+						modules={[Autoplay, Navigation]}
+						spaceBetween={24}
+						slidesPerView={1}
+						breakpoints={{
+							768: { slidesPerView: 2 },
+							1024: { slidesPerView: SLIDES_PER_VIEW_DESKTOP },
+						}}
+						autoplay={{
+							delay: 2000,
+							disableOnInteraction: false,
+							pauseOnMouseEnter: true,
+						}}
+						navigation={
+							showArrows
+								? { nextEl: ".testimonials-next", prevEl: ".testimonials-prev" }
+								: false
+						}
+						loop>
+						{testimonials.map((testimonial, index) => (
+							<SwiperSlide key={index}>
+								<div className="bg-white rounded-2xl p-6 flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300 h-full my-3">
+									{/* Quote mark */}
+									<div className="text-4xl leading-none text-(--primary-color) font-serif mb-3 select-none">
+										&ldquo;
+									</div>
 
-							{/* Review text */}
-							<p className="text-gray-600 font-light text-sm leading-relaxed flex-1 mb-6">
-								{testimonial.solution}
-							</p>
-
-							{/* Stars */}
-							<Stars count={testimonial.rating} />
-
-							{/* Divider */}
-							<div className="border-t border-gray-100 my-4" />
-
-							{/* Author */}
-							<div className="flex items-center gap-3">
-								<div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-100 shrink-0">
-									<Image
-										src={testimonial.profileImage}
-										alt={`${testimonial.name} profilképe`}
-										fill
-										className="object-cover"
-									/>
-								</div>
-								<div className="text-left min-w-0">
-									<p className="text-sm font-medium text-gray-900 truncate">
-										{testimonial.name}
+									{/* Review text */}
+									<p className="text-gray-600 font-light text-sm leading-relaxed flex-1 mb-6">
+										{testimonial.solution}
 									</p>
-									<p className="text-xs font-light text-gray-400 truncate">
-										{testimonial.symptom}
-									</p>
+
+									{/* Stars */}
+									<Stars count={testimonial.rating} />
+
+									{/* Divider */}
+									<div className="border-t border-gray-100 my-4" />
+
+									{/* Author */}
+									<div className="flex items-center gap-3">
+										<div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-100 shrink-0">
+											<Image
+												src={testimonial.profileImage}
+												alt={`${testimonial.name} profilképe`}
+												fill
+												className="object-cover"
+											/>
+										</div>
+										<div className="text-left min-w-0">
+											<p className="text-sm font-medium text-gray-900 truncate">
+												{testimonial.name}
+											</p>
+											<p className="text-xs font-light text-gray-400 truncate">
+												{testimonial.symptom}
+											</p>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-					))}
+							</SwiperSlide>
+						))}
+					</Swiper>
+
+					{/* Desktop-only arrows */}
+					{showArrows && (
+						<>
+							<button
+								className="testimonials-prev hidden lg:flex absolute -left-12 top-1/2 -translate-y-1/2 z-10 w-9 h-9 items-center justify-center rounded-full bg-white shadow border border-gray-100 hover:shadow-md transition-shadow disabled:opacity-30"
+								aria-label="Előző">
+								<svg
+									width="18"
+									height="18"
+									fill="none"
+									stroke="currentColor"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									viewBox="0 0 24 24">
+									<path d="M15 18l-6-6 6-6" />
+								</svg>
+							</button>
+							<button
+								className="testimonials-next hidden lg:flex absolute -right-12 top-1/2 -translate-y-1/2 z-10 w-9 h-9 items-center justify-center rounded-full bg-white shadow border border-gray-100 hover:shadow-md transition-shadow disabled:opacity-30"
+								aria-label="Következő">
+								<svg
+									width="18"
+									height="18"
+									fill="none"
+									stroke="currentColor"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									viewBox="0 0 24 24">
+									<path d="M9 18l6-6-6-6" />
+								</svg>
+							</button>
+						</>
+					)}
 				</div>
 			</div>
 		</section>
