@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,10 +12,17 @@ const navLinks = [
 
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
+
+	useEffect(() => {
+		const onScroll = () => setScrolled(window.scrollY > 10);
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => window.removeEventListener("scroll", onScroll);
+	}, []);
 
 	return (
-		<header className="w-full border-b border-gray-100 fixed top-0 z-30 bg-transparent">
-			<nav className="max-w-6xl mx-auto flex items-between items-center h-20 sm:px-4 px-8 bg-transparent">
+		<header className={`w-full fixed top-0 z-30 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm" : "bg-transparent border-b border-transparent"}`}>
+			<nav className="max-w-7xl mx-auto flex items-between items-center h-20 sm:px-4 px-8 bg-transparent">
 				{/* Logo and links */}
 				<div className="flex items-center gap-8 w-full">
 					<Link href="/" className="flex items-center gap-2 shrink-0">
@@ -34,7 +41,7 @@ const Header = () => {
 							<li key={link.href}>
 								<a
 									href={link.href}
-									className="text-gray-700 hover:text-[var(--primary-color)] transition-colors font-medium px-2 py-1 rounded">
+									className="text-gray-700 hover:text-[var(--primary-color)] transition-colors font-normal px-2 py-1 rounded">
 									{link.label}
 								</a>
 							</li>
@@ -106,7 +113,7 @@ const Header = () => {
 								<li key={link.href}>
 									<Link
 										href={link.href}
-										className="text-gray-700 hover:text-[var(--primary-color)] transition-colors font-medium px-2 py-1 rounded"
+										className="text-gray-700 hover:text-[var(--primary-color)] transition-colors font-normal px-2 py-1 rounded"
 										onClick={() => setMenuOpen(false)}>
 										{link.label}
 									</Link>

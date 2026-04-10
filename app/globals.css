@@ -1,6 +1,125 @@
 @import "tailwindcss";
 
+/* Gotham Font Faces */
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-Thin.otf") format("opentype");
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-ThinItalic.otf") format("opentype");
+	font-weight: 100;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-ExtraLight.otf") format("opentype");
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-ExtraLightItalic.otf") format("opentype");
+	font-weight: 200;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-Light.otf") format("opentype");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-LightItalic.otf") format("opentype");
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-Book.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-BookItalic.otf") format("opentype");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-Medium.otf") format("opentype");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-MediumItalic.otf") format("opentype");
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/GOTHAM-BOLD.TTF") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-BoldItalic.otf") format("opentype");
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/GOTHAM-BLACK.TTF") format("truetype");
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/GOTHAM-BLACKITALIC.TTF") format("truetype");
+	font-weight: 800;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-Ultra.otf") format("opentype");
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Gotham";
+	src: url("/fonts/Gotham-UltraItalic.otf") format("opentype");
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
+@import "tailwindcss";
+
 /********** Global Styles **********/
+
+html {
+	scroll-behavior: smooth;
+}
 
 :root {
 	--primary-color: #199ba9;
@@ -9,12 +128,46 @@
 	--background-color: #ffffff;
 	--text-color: #1b1b1b;
 	--primary-light: #f6fafa;
+	--primary-dark: #10707a;
+	--header-font: "Gotham", "Inter", Arial, sans-serif;
 }
 
 body {
-	font-family: "Inter", sans-serif;
+	font-family: "Gotham", "Inter", Arial, sans-serif;
+	font-weight: 300;
 	background-color: var(--background-color);
 	color: var(--text-color);
+}
+
+/* Header font styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--header-font);
+	font-weight: 700;
+	line-height: 1.1;
+	letter-spacing: -0.01em;
+}
+h1 {
+	font-size: 2.5rem;
+}
+h2 {
+	font-size: 2rem;
+}
+h3 {
+	font-size: 1.5rem;
+}
+h4 {
+	font-size: 1.25rem;
+}
+h5 {
+	font-size: 1.125rem;
+}
+h6 {
+	font-size: 1rem;
 }
 
 /* Utility classes */
@@ -34,6 +187,10 @@ body {
 	background-color: var(--primary-light);
 }
 
+.bg-primary-dark {
+	background-color: var(--primary-dark);
+}
+
 .text-primary {
 	color: var(--primary-color);
 }
@@ -44,4 +201,19 @@ body {
 
 .text-accent {
 	color: var(--accent-color);
+}
+
+.primary-button {
+	background-color: var(--primary-color);
+	color: #fff;
+	padding: 0.6rem 1.5rem;
+	border: none;
+	border-radius: 0.375rem;
+	font-size: 1rem;
+	font-weight: 400;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+.primary-button:hover {
+	background-color: var(--primary-dark);
 }
