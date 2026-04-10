@@ -4,8 +4,8 @@ import Image from "next/image";
 const Hero = () => {
 	return (
 		<div className="min-h-screen flex flex-col bg-primary-light justify-center items-start relative overflow-hidden">
-			<div className="max-w-7xl mx-auto flex flex-col text-left px-8 md:px-0 z-10 w-full md:w-2/5 md:ml-8 lg:ml-20 xl:ml-32">
-				<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+			<div className="max-w-7xl mx-auto flex flex-col text-left px-8 md:px-0 z-10 w-full md:w-2/5 md:ml-8 lg:ml-20 xl:ml-32 mt-20 md:mt-0">
+				<h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
 					Feltárjuk szűnni nem akaró kellemetlen tüneteid okait és célzottan
 					kezeljük azokat!
 				</h1>

@@ -37,7 +37,7 @@ const steps = [
 const Process = () => {
 	return (
 		<section className="w-full pb-20 bg-white">
-			<div className="max-w-7xl mx-auto px-8 sm:px-4">
+			<div className="max-w-7xl mx-auto px-4 md:px-8">
 				<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
 					Hogyan működik a terápia?
 				</h2>

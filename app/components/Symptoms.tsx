@@ -54,19 +54,19 @@ const symptoms = [
 const Symptoms = () => {
 	return (
 		<section className="w-full py-20 bg-white">
-			<div className="max-w-7xl mx-auto px-8 sm:px-4">
+			<div className="max-w-7xl mx-auto px-4 md:px-8">
 				<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center w-full lg:w-3/4 mx-auto">
 					Kellemetlen, olykor kínzó tünetek, amikre a terápiánk megoldás lehet
 				</h2>
-				<div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+				<div className="grid grid-cols-2  md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
 					{symptoms.map((symptom, index) => (
 						<div
 							key={index}
-							className="group flex flex-col items-center text-center p-6 rounded-2xl bg-transparent border border-gray-100 transition-all duration-300 hover:shadow-md hover:border-transparent cursor-default">
+							className="group flex flex-col items-center text-center p-2 md:p-6 rounded-2xl bg-transparent border border-gray-100 transition-all duration-300 hover:shadow-md hover:border-transparent cursor-default">
 							<div className="text-(--primary-color) mb-4 transition-transform duration-300 group-hover:scale-110">
 								<i className={`text-[25px] ${symptom.icon}`}></i>
 							</div>
-							<h4 className="text-base font-medium text-gray-900 mb-2 leading-snug">
+							<h4 className="text-base font-medium text-gray-900 mb-2 leading-snug wrap-break-word w-full">
 								{symptom.title}
 							</h4>
 							<p className="text-sm font-light text-gray-500 leading-relaxed">
