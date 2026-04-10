@@ -30,9 +30,21 @@ const infoItems = [
 ];
 
 const socialLinks = [
-	{ icon: "fa-brands fa-facebook", href: "#", label: "Facebook" },
-	{ icon: "fa-brands fa-instagram", href: "#", label: "Instagram" },
-	{ icon: "fa-brands fa-youtube", href: "#", label: "YouTube" },
+	{
+		icon: "fa-brands fa-facebook",
+		href: "https://www.facebook.com/NeuroPress",
+		label: "Facebook",
+	},
+	{
+		icon: "fa-brands fa-instagram",
+		href: "https://www.instagram.com/neuropress",
+		label: "Instagram",
+	},
+	{
+		icon: "fa-brands fa-youtube",
+		href: "https://www.youtube.com/@neuropressterapia8765",
+		label: "YouTube",
+	},
 ];
 
 type FormState = {
@@ -64,7 +76,8 @@ const Contact = () => {
 			setForm((prev) => ({ ...prev, therapy: e.detail }));
 		};
 		window.addEventListener("selectTherapy", handler as EventListener);
-		return () => window.removeEventListener("selectTherapy", handler as EventListener);
+		return () =>
+			window.removeEventListener("selectTherapy", handler as EventListener);
 	}, []);
 
 	const validate = (): Errors => {
@@ -84,7 +97,7 @@ const Contact = () => {
 	const handleChange = (
 		e: React.ChangeEvent<
 			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-		>
+		>,
 	) => {
 		const { name, value } = e.target;
 		setForm((prev) => ({ ...prev, [name]: value }));
@@ -131,7 +144,9 @@ const Contact = () => {
 								{infoItems.map((item) => (
 									<li key={item.label} className="flex items-start gap-4">
 										<div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
-											<i className={`${item.icon} text-(--primary-color) text-sm`} />
+											<i
+												className={`${item.icon} text-(--primary-color) text-sm`}
+											/>
 										</div>
 										<div>
 											<p className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-0.5">
@@ -203,7 +218,7 @@ const Contact = () => {
 								className="flex flex-col gap-5">
 								{/* Name */}
 								<div>
-									<label className="block text-xs font-medium text-gray-500 uppercase tracking-widest mb-1.5">
+									<label className="section-label block mb-1.5">
 										Teljes név <span className="text-red-400">*</span>
 									</label>
 									<input
@@ -222,7 +237,7 @@ const Contact = () => {
 								{/* Phone + Email */}
 								<div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 									<div>
-										<label className="block text-xs font-medium text-gray-500 uppercase tracking-widest mb-1.5">
+										<label className="section-label block mb-1.5">
 											Telefonszám <span className="text-red-400">*</span>
 										</label>
 										<input
@@ -240,7 +255,7 @@ const Contact = () => {
 										)}
 									</div>
 									<div>
-										<label className="block text-xs font-medium text-gray-500 uppercase tracking-widest mb-1.5">
+										<label className="section-label block mb-1.5">
 											E-mail cím <span className="text-red-400">*</span>
 										</label>
 										<input
@@ -261,7 +276,7 @@ const Contact = () => {
 
 								{/* Therapy picker */}
 								<div>
-									<label className="block text-xs font-medium text-gray-500 uppercase tracking-widest mb-1.5">
+									<label className="section-label block mb-1.5">
 										Érdeklődés tárgya <span className="text-red-400">*</span>
 									</label>
 									<select
@@ -285,7 +300,7 @@ const Contact = () => {
 
 								{/* Message */}
 								<div>
-									<label className="block text-xs font-medium text-gray-500 uppercase tracking-widest mb-1.5">
+									<label className="section-label block mb-1.5">
 										Üzenet <span className="text-red-400">*</span>
 									</label>
 									<textarea

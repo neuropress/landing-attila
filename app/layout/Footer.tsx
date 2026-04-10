@@ -3,17 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
-	{ href: "#about", label: "About" },
-	{ href: "#features", label: "Features" },
-	{ href: "#pricing", label: "Pricing" },
-	{ href: "#contact", label: "Contact" },
+	{ href: "#stories", label: "Sikertörténetek" },
+	{ href: "#about", label: "Rólunk" },
+	{ href: "#pricing", label: "Árazás" },
+	{ href: "#contact", label: "Kapcsolat" },
 ];
 
 const legalLinks = [
 	{ href: "/adatvedelmi-tajekoztato", label: "Adatvédelmi tájékoztató" },
 	{ href: "/cookie-szabalyzat", label: "Cookie szabályzat" },
 	{ href: "/aszf", label: "Általános szerződési feltételek" },
-	{ href: "/impresszum", label: "Impresszum" },
 ];
 
 const Footer = () => {
@@ -43,13 +42,22 @@ const Footer = () => {
 							valódi okait.
 						</p>
 						<div className="flex gap-3 mt-1">
-							<a href="#" aria-label="Facebook" className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors duration-200">
+							<a
+								href="https://www.facebook.com/NeuroPress"
+								aria-label="Facebook"
+								className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors duration-200">
 								<i className="fa-brands fa-facebook text-sm" />
 							</a>
-							<a href="#" aria-label="Instagram" className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors duration-200">
+							<a
+								href="https://www.instagram.com/neuropress"
+								aria-label="Instagram"
+								className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors duration-200">
 								<i className="fa-brands fa-instagram text-sm" />
 							</a>
-							<a href="#" aria-label="YouTube" className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors duration-200">
+							<a
+								href="https://www.youtube.com/@neuropressterapia8765"
+								aria-label="YouTube"
+								className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors duration-200">
 								<i className="fa-brands fa-youtube text-sm" />
 							</a>
 						</div>
@@ -62,7 +70,9 @@ const Footer = () => {
 						<ul className="flex flex-col gap-3">
 							{navLinks.map((link) => (
 								<li key={link.href}>
-									<a href={link.href} className="text-sm font-light text-white/80 hover:text-white transition-colors duration-200 flex items-center gap-2 group">
+									<a
+										href={link.href}
+										className="text-sm font-light text-white/80 hover:text-white transition-colors duration-200 flex items-center gap-2 group">
 										<i className="fa-solid fa-chevron-right text-xs text-white/40 group-hover:text-white/70 transition-colors" />
 										{link.label}
 									</a>
@@ -78,7 +88,9 @@ const Footer = () => {
 						<ul className="flex flex-col gap-3">
 							{legalLinks.map((link) => (
 								<li key={link.href}>
-									<Link href={link.href} className="text-sm font-light text-white/80 hover:text-white transition-colors duration-200 flex items-center gap-2 group">
+									<Link
+										href={link.href}
+										className="text-sm font-light text-white/80 hover:text-white transition-colors duration-200 flex items-center gap-2 group">
 										<i className="fa-solid fa-chevron-right text-xs text-white/40 group-hover:text-white/70 transition-colors" />
 										{link.label}
 									</Link>
@@ -96,8 +108,10 @@ const Footer = () => {
 					</p>
 					<p className="text-xs font-light text-white/50">
 						{"Fejlesztette: "}
-						<a href="#" className="text-white/70 hover:text-white transition-colors duration-200">
-							Prisma Digital
+						<a
+							href="https://www.prismasolutions.ro"
+							className="text-white/70 hover:text-white transition-colors duration-200">
+							Prisma Solutions
 						</a>
 					</p>
 				</div>

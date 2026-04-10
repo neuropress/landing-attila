@@ -4,10 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
-	{ href: "#about", label: "About" },
-	{ href: "#features", label: "Features" },
-	{ href: "#pricing", label: "Pricing" },
-	{ href: "#contact", label: "Contact" },
+	{ href: "#stories", label: "Sikertörténetek" },
+	{ href: "#about", label: "Rólunk" },
+	{ href: "#pricing", label: "Árazás" },
 ];
 
 const Header = () => {
@@ -21,8 +20,9 @@ const Header = () => {
 	}, []);
 
 	return (
-		<header className={`w-full fixed top-0 z-30 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm" : "bg-transparent border-b border-transparent"}`}>
-			<nav className="max-w-7xl mx-auto flex items-between items-center h-20 sm:px-4 px-8 bg-transparent">
+		<header
+			className={`w-full fixed top-0 z-30 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm" : "bg-transparent border-b border-transparent"}`}>
+			<nav className="max-w-7xl mx-auto flex items-between items-center h-18 sm:px-4 px-8 bg-transparent">
 				{/* Logo and links */}
 				<div className="flex items-center gap-8 w-full">
 					<Link href="/" className="flex items-center gap-2 shrink-0">
@@ -36,7 +36,7 @@ const Header = () => {
 						/>
 					</Link>
 					{/* Desktop nav */}
-					<ul className="hidden md:flex gap-10 ml-4">
+					<ul className="hidden md:flex items-center gap-10 ml-4">
 						{navLinks.map((link) => (
 							<li key={link.href}>
 								<a
@@ -47,6 +47,11 @@ const Header = () => {
 							</li>
 						))}
 					</ul>
+					<a
+						href="#contact"
+						className="primary-button hidden md:inline-block ml-auto shrink-0">
+						Kapcsolat
+					</a>
 				</div>
 				{/* Hamburger button */}
 				<button

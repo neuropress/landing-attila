@@ -45,14 +45,12 @@ const cards = [
 
 const Prices = () => {
 	const handleSelect = (therapy: string) => {
-		window.dispatchEvent(
-			new CustomEvent("selectTherapy", { detail: therapy })
-		);
+		window.dispatchEvent(new CustomEvent("selectTherapy", { detail: therapy }));
 		document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 	};
 
 	return (
-		<section className="w-full py-20 bg-primary-light">
+		<section className="w-full py-20 bg-primary-light" id="pricing">
 			<div className="max-w-7xl mx-auto px-8 sm:px-4">
 				<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
 					Áraink

@@ -38,13 +38,13 @@ const AboutCure = () => {
 		<section className="w-full py-20 bg-white">
 			<div className="max-w-7xl mx-auto px-8 sm:px-4">
 				<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center w-full lg:w-3/4 mx-auto">
-					Így változik meg az életed a terápia után
+					Miért jobb a Neuropress terápia, mint egy hagyományos reflexológiai
+					kezelés?
 				</h2>
 				<p className="text-lg md:text-xl text-gray-700 mb-16 font-light text-center w-full lg:w-3/4 mx-auto">
-					A Neuropress terápia komplex szemléletmódja miatt nem áll meg a
-					kezeléseknél. Étkezés- és életmódbeli tanácsokkal is ellátjuk a
-					hozzánk járókat, hogy mielőbb maguk mögött tudhassák kellemetlen
-					tüneteiket.
+					A Neuropress nem csak reflexológia: komplexen vizsgáljuk a tested és
+					idegrendszered, hogy személyre szabott, tartós javulást hozó terápiát
+					nyújtsunk.
 				</p>
 
 				<div className="flex flex-col gap-8">

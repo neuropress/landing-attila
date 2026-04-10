@@ -52,7 +52,7 @@ const Stars = ({ count }: { count: number }) => (
 
 const Stories = () => {
 	return (
-		<section className="w-full py-20 bg-primary-light">
+		<section className="w-full py-20 bg-primary-light" id="stories">
 			<div className="max-w-7xl mx-auto px-8 sm:px-4">
 				<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center w-full lg:w-3/4 mx-auto">
 					Így változik meg az életed a terápia után

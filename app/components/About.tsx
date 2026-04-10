@@ -1,46 +1,58 @@
 import Image from "next/image";
 const About = () => {
 	return (
-		<section className="w-full bg-white py-20">
+		<section className="w-full bg-white py-20" id="about">
 			<div className="max-w-7xl mx-auto px-8 sm:px-4">
 				<div className="flex flex-col lg:flex-row items-start gap-12">
 					<div className="bg-white">
 						<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-start w-full">
-							Ismerd meg vezető orvosunkat, Dr. Szabó Pétert, aki a Neuropress
-							terápia megalkotója és szakmai vezetője!
+							Ki áll a terápia mögött?
 						</h2>
 						<p className="text-md md:text-lg text-gray-700 mb-12 font-light text-start w-full">
-							Dr. Szabó Péter több mint 20 éves tapasztalattal rendelkező orvos,
-							aki a neurológia és a reflexológia területén szerzett mélyreható
-							ismereteket. Szenvedélye a komplex terápiás megközelítések
-							kidolgozása, amelyek célja a betegek életminőségének javítása. A
-							Neuropress terápia megalkotásával Dr. Szabó egy olyan innovatív
-							kezelési módszert hozott létre, amely a legújabb tudományos
-							kutatásokra és klinikai tapasztalatokra épül, hogy hatékonyan
-							kezelje a krónikus fájdalom és egyéb kellemetlen tünetek okait.
-							Dr. Szabó Péter elkötelezett amellett, hogy minden beteg számára
-							személyre szabott és eredményorientált ellátást nyújtson, és
-							folyamatosan dolgozik azon, hogy továbbfejlessze a Neuropress
-							terápiát a legújabb orvosi felfedezések fényében.
+							Németországban nevelkedtem, majd ott végeztem közgazdasági szakon.
+							Életem során mindig érdekelt az egészség és az azzal kapcsolatos
+							témakörök, hozzá tartozó kutatások, új irányok és lehetőségek.{" "}
+							<br />
+							2001-ben Magyarországra költöztem és a családi vállalkozásba
+							beléptem, ahol Édesapám ennek a terápiának az alapjait kidolgozta
+							és sikeresen alkalmazta. A terápia alapfilozófiája magával
+							ragadott és az eredményei meggyőztek, így egyértelmű volt
+							számomra, hogy ez az, amivel foglalkozni szeretnék, ezt szeretném
+							tovább vinni, fejleszteni és kutatni. <br />
+							Időközben elvégeztem a természetgyógyászati iskolát reflexológiai
+							szakképesítéssel. Tudásomat többek között bővítettem funkcionális
+							táplálkozási- és hormonegyensúly tanácsadó képesítéssel.
+							<br /> A gyógyítás ezen, területe vált számomra életfeladattá,
+							melyet és emellett magamat is folyamatosan képzem és fejlesztem.
+							Nincs nagyobb elismerés és motiváció számomra, mint a hozzánk
+							forduló pácienseink gyógyulásának öröme. <br />
+							Fontos számomra az egészségtudatos életmód, mint testileg,
+							szellemileg és lelkileg. Bízom benne, hogy gyermekem is
+							továbbviszi örökségét és szeretném kisgyerekes Édesapaként, hogy
+							fiam büszke legyen Rám, és amit csinálok minden tekintetben
+							példaértékű legyen.
 						</p>
 					</div>
 					<div className="shrink-0 w-full max-w-sm bg-primary-light rounded-2xl p-8 flex flex-col items-start text-start">
 						<div className="relative w-20 h-20 rounded-full overflow-hidden mb-6 shadow-md">
 							<Image
 								src="/images/attila.webp"
-								alt="Dr. Szabó Péter"
+								alt="Dr. Vargha Attila"
 								fill
 								className="object-cover object-center"
 								priority
 							/>
 						</div>
 						<p className="text-gray-700 font-light text-sm leading-relaxed italic mb-6">
-							&ldquo;Hiszem, hogy minden tünet mögött egy ok rejlik. A
-							Neuropress terápia célja, hogy megtaláljuk és kezeljük ezt az okot
-							— nem csupán enyhítsük a fájdalmat.&rdquo;
+							&ldquo;„Szakértelem-Hatékonyság-Egészség” <br /> Vargha Attila
+							vagyok, a NeuroPress Terápia vezető terapeutája, Budapesten a XI.
+							kerületben, Kecskeméten és Szegeden vezetem a NeuroPress
+							rendelőket, közel 20 éve.&rdquo;
 						</p>
 						<div className="border-t border-gray-200 w-16 mb-4" />
-						<p className="text-sm font-medium text-gray-900">Dr. Szabó Péter</p>
+						<p className="text-sm font-medium text-gray-900">
+							Dr. Vargha Attila
+						</p>
 						<p className="text-xs font-light text-gray-400 mt-1">
 							Alapító, Neuropress terapeuta
 						</p>

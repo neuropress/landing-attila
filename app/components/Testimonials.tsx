@@ -54,13 +54,11 @@ const Testimonials = () => {
 		<section className="w-full py-20 bg-primary-light">
 			<div className="max-w-7xl mx-auto px-8 sm:px-4">
 				<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center w-full lg:w-3/4 mx-auto">
-					Így változik meg az életed a terápia után
+					Nekik már segítettünk
 				</h2>
 				<p className="text-lg md:text-xl text-gray-700 mb-12 font-light text-center w-full lg:w-3/4 mx-auto">
-					A Neuropress terápia komplex szemléletmódja miatt nem áll meg a
-					kezeléseknél. Étkezés- és életmódbeli tanácsokkal is ellátjuk a
-					hozzánk járókat, hogy mielőbb maguk mögött tudhassák kellemetlen
-					tüneteiket.
+					Olvasd el, hogyan változtatta meg a Neuropress terápia a hozzánk
+					fordulók életét, és hogyan szabadultak meg kellemetlen tüneteiktől.
 				</p>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
