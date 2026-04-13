@@ -124,7 +124,7 @@ const Contact = () => {
 	};
 
 	const inputBase =
-		"w-full rounded-lg border bg-white px-4 py-3 text-sm font-light text-gray-800 placeholder:text-gray-400 outline-none transition-colors focus:border-(--primary-color) focus:ring-2 focus:ring-(--primary-color)/20";
+		"w-full rounded-lg border bg-white px-4 py-3 text-base font-light text-gray-800 placeholder:text-gray-400 outline-none transition-colors focus:border-(--primary-color) focus:ring-2 focus:ring-(--primary-color)/20";
 	const inputNormal = "border-gray-200";
 	const inputError = "border-red-400 focus:border-red-400 focus:ring-red-100";
 

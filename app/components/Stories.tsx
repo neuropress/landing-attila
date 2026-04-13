@@ -180,7 +180,7 @@ const Stories = () => {
 					</div>
 				</FadeContent>
 			</div>
-			<BackgroundLogo orientation="left" />
+			<BackgroundLogo orientation="right" />
 		</section>
 	);
 };
