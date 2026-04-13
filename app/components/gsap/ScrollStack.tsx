@@ -249,13 +249,13 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 				smoothWheel: true,
 				infinite: false,
 				wheelMultiplier: 1,
+				// touchMultiplier: 1 keeps 1:1 finger tracking (2 was over-sensitive).
+				// syncTouch: true keeps transforms frame-synced via RAF (prevents shake).
+				// syncTouchLerp: 0.12 adds noticeable smoothing without the floatiness
+				// of the original 0.05.
 				touchMultiplier: 1,
-				// syncTouch must stay true — it drives touch through RAF so card
-				// transforms stay frame-perfectly in sync (false causes jitter).
-				// syncTouchLerp near 1 means almost no interpolation is added on top
-				// of native touch, so it still feels natural on iOS/Android.
 				syncTouch: true,
-				syncTouchLerp: 0.8,
+				syncTouchLerp: 0.12,
 			});
 
 			lenis.on("scroll", updateCardTransforms);
