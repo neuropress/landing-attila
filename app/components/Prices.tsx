@@ -59,13 +59,21 @@ const Prices = () => {
 						Áraink
 					</h2>
 				</AnimatedContent>
-				<AnimatedContent distance={30} duration={0.7} delay={0.15} threshold={0.3}>
+				<AnimatedContent
+					distance={30}
+					duration={0.7}
+					delay={0.15}
+					threshold={0.3}>
 					<p className="text-lg font-light text-gray-500 text-center mb-16 w-full lg:w-1/2 mx-auto">
 						Áraink 2026. február 1. napjától érvényesek!
 					</p>
 				</AnimatedContent>
 
-				<FadeContent duration={800} delay={300} threshold={0.2} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<FadeContent
+					duration={800}
+					delay={300}
+					threshold={0.2}
+					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 					{cards.map((card, index) => (
 						<div
 							key={index}

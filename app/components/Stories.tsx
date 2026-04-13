@@ -48,12 +48,21 @@ const Stories = () => {
 	return (
 		<section className="w-full py-20 bg-primary-light" id="stories">
 			<div className="max-w-7xl mx-auto px-4 md:px-8">
-				<AnimatedContent distance={40} duration={0.7} threshold={0.3} className="w-full">
+				<AnimatedContent
+					distance={40}
+					duration={0.7}
+					threshold={0.3}
+					className="w-full">
 					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center w-full lg:w-3/4 mx-auto">
 						Így változik meg az életed a terápia után
 					</h2>
 				</AnimatedContent>
-				<AnimatedContent distance={30} duration={0.7} delay={0.15} threshold={0.3} className="w-full">
+				<AnimatedContent
+					distance={30}
+					duration={0.7}
+					delay={0.15}
+					threshold={0.3}
+					className="w-full">
 					<p className="text-lg md:text-xl text-gray-700 mb-12 font-light text-center w-full lg:w-3/4 mx-auto">
 						A Neuropress terápia komplex szemléletmódja miatt nem áll meg a
 						kezeléseknél. Étkezés- és életmódbeli tanácsokkal is ellátjuk a
@@ -62,7 +71,11 @@ const Stories = () => {
 					</p>
 				</AnimatedContent>
 
-				<FadeContent duration={800} delay={300} threshold={0.2} className="relative stories-swiper -mx-2 px-2 py-3 -my-3">
+				<FadeContent
+					duration={800}
+					delay={300}
+					threshold={0.2}
+					className="relative stories-swiper -mx-2 px-2 py-3 -my-3">
 					<Swiper
 						modules={[Autoplay, Navigation]}
 						spaceBetween={24}
@@ -155,14 +168,13 @@ const Stories = () => {
 							</button>
 						</>
 					)}
-				</FadeContent>
-
-				<FadeContent duration={800} delay={500} threshold={0.2} className="w-full h-16 flex items-center justify-center mt-10">
-					<Link
-						href="#contact"
-						className="primary-button inline-block mx-auto py-2">
-						Szeretnék én is jól lenni!
-					</Link>
+					<div className="w-full h-16 flex items-center justify-center mt-10">
+						<Link
+							href="#contact"
+							className="primary-button inline-block mx-auto py-2">
+							Szeretnék én is jól lenni!
+						</Link>
+					</div>
 				</FadeContent>
 			</div>
 		</section>

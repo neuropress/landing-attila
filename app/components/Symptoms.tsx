@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import AnimatedContent from "./gsap/AnimatedContent";
+import BackgroundLogo from "./BackgroundLogo";
 
 const symptoms = [
 	{
@@ -55,9 +56,13 @@ const symptoms = [
 
 const Symptoms = () => {
 	return (
-		<section className="w-full py-20 bg-white">
+		<section className="w-full py-20 bg-white relative overflow-hidden">
 			<div className="max-w-7xl mx-auto px-4 md:px-8">
-				<AnimatedContent distance={40} duration={0.7} threshold={0.3} className="w-full">
+				<AnimatedContent
+					distance={40}
+					duration={0.7}
+					threshold={0.3}
+					className="w-full">
 					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center w-full lg:w-3/4 mx-auto">
 						Kellemetlen, olykor kínzó tünetek, amikre a terápiánk megoldás lehet
 					</h2>
@@ -86,6 +91,7 @@ const Symptoms = () => {
 					))}
 				</div>
 			</div>
+			{/* <BackgroundLogo /> */}
 		</section>
 	);
 };

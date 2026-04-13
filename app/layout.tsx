@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import FooterSpacer from "./layout/FooterSpacer";
+import LoadingScreen from "./components/LoadingScreen";
 import Script from "next/script";
 
 // const geistSans = Geist({

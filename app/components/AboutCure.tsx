@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import AnimatedContent from "./gsap/AnimatedContent";
 import ScrollStack, { ScrollStackItem } from "./gsap/ScrollStack";
@@ -37,35 +38,53 @@ const blocks = [
 ];
 
 const AboutCure = () => {
+	const [stackPos, setStackPos] = useState("35%");
+	const [scaleEndPos, setScaleEndPos] = useState("30%");
+
+	useEffect(() => {
+		const update = () => {
+			const mobile = window.innerWidth < 768;
+			setStackPos(mobile ? "15%" : "35%");
+			// scaleEndPos must be numerically smaller than stackPos so the
+			// triggerEnd > triggerStart invariant holds and scaling stays smooth.
+			setScaleEndPos(mobile ? "5%" : "30%");
+		};
+		update();
+		window.addEventListener("resize", update);
+		return () => window.removeEventListener("resize", update);
+	}, []);
+
 	return (
-		<section className="w-full bg-white">
-			<div className="max-w-7xl mx-auto px-4 md:px-8 pt-20">
-				<AnimatedContent
-					distance={40}
-					duration={0.7}
-					threshold={0.3}
-					className="w-full">
-					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center w-full lg:w-3/4 mx-auto">
-						Miért jobb a Neuropress terápia, mint egy hagyományos reflexológiai
-						kezelés?
-					</h2>
-					<p className="text-lg md:text-xl text-gray-700 mb-4 font-light text-center w-full lg:w-3/4 mx-auto">
-						A Neuropress nem csak reflexológia: komplexen vizsgáljuk a tested és
-						idegrendszered, hogy személyre szabott, tartós javulást hozó
-						terápiát nyújtsunk.
-					</p>
-				</AnimatedContent>
+		<section className="w-full bg-white pt-20">
+			<div className="hidden md:block sticky top-0 z-20 bg-white py-6">
+				<div className="max-w-7xl mx-auto px-4 md:px-8">
+					<AnimatedContent
+						distance={40}
+						duration={0.7}
+						threshold={0.3}
+						className="w-full">
+						<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center w-full lg:w-3/4 mx-auto">
+							Miért jobb a Neuropress terápia, mint egy hagyományos
+							reflexológiai kezelés?
+						</h2>
+						<p className="text-lg md:text-xl text-gray-700 font-light text-center w-full lg:w-3/4 mx-auto">
+							A Neuropress nem csak reflexológia: komplexen vizsgáljuk a tested
+							és idegrendszered, hogy személyre szabott, tartós javulást hozó
+							terápiát nyújtsunk.
+						</p>
+					</AnimatedContent>
+				</div>
 			</div>
 
 			<ScrollStack
-				useWindowScroll
-				innerClassName="px-4 sm:px-6 lg:px-20 max-w-7xl mx-auto"
+				useWindowScroll={true}
+				innerClassName="px-4 md:px-8 max-w-7xl mx-auto"
 				bottomPadding="pb-[50vh]"
 				itemDistance={70}
 				itemScale={0.03}
 				itemStackDistance={18}
-				stackPosition="35%"
-				scaleEndPosition="30%"
+				stackPosition={stackPos}
+				scaleEndPosition={scaleEndPos}
 				baseScale={0.9}>
 				{blocks.map((block, index) => (
 					<ScrollStackItem

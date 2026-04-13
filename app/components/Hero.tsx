@@ -47,7 +47,7 @@ const Hero = () => {
 				aria-hidden="true"
 			/>
 			<div
-				className="hidden sm:block absolute rounded-[100px] w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px]  right-[-60px] md:right-[-80px] lg:right-[-100px]  top-[-120px] md:top-[-160px] lg:top-[-200px]  rotate-[-12deg] overflow-hidden animate-slide-in-from-left"
+				className="hidden sm:block absolute rounded-[100px] w-125 h-125 md:w-175 md:h-175 lg:w-200 lg:h-200 xl:w-225 xl:h-225 2xl:w-275 2xl:h-275 -right-15 md:-right-20 lg:-right-25 xl:-right-50 2xl:-right-40 -top-30 md:-top-40 lg:-top-50 xl:-top-60 2xl:-top-70 -rotate-12 overflow-hidden animate-slide-in-from-left"
 				aria-hidden="true">
 				<Image
 					src="/images/attila.webp"

@@ -221,7 +221,6 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 				}
 			}
 		});
-
 	}, [
 		itemScale,
 		itemStackDistance,
@@ -245,7 +244,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 			// feels "bouncy." The earlier vibration bug was caused by getBoundingClientRect
 			// (now fixed to use offsetTop), so Lenis is safe to use here again.
 			const lenis = new Lenis({
-				duration: 1.0,
+				duration: 1.3,
 				easing: (t) => 1 - Math.pow(1 - t, 3), // cubic ease-out — smooth, no overshoot
 				smoothWheel: true,
 				touchMultiplier: 2,
@@ -364,7 +363,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 							scrollBehavior: "smooth",
 						}
 			}>
-			<div className={`scroll-stack-inner pt-8 min-h-screen ${bottomPadding} ${innerClassName ?? "px-20"}`}>
+			<div
+				className={`scroll-stack-inner pt-8 min-h-screen ${bottomPadding} ${innerClassName ?? "px-20"}`}>
 				{children}
 				{/* Spacer so the last pin can release cleanly */}
 				<div className="scroll-stack-end w-full h-px" />

@@ -30,13 +30,13 @@ const Footer = () => {
 							<Image
 								src="/logos/3.webp"
 								alt="Neuropress Logo"
-								width={140}
+								width={250}
 								height={70}
 								className="object-contain brightness-0 invert"
 								priority={false}
 							/>
 						</Link>
-						<p className="text-sm font-light text-white/75 leading-relaxed">
+						<p className="text-sm font-light text-white/75 leading-relaxed hidden md:block">
 							A Neuropress egyedileg továbbfejlesztett, reflexológián alapuló
 							komplex terápia, amely feltárja és célzottan kezeli a tünetek
 							valódi okait.
@@ -64,7 +64,7 @@ const Footer = () => {
 					</div>
 
 					<div>
-						<h4 className="text-xs font-medium uppercase tracking-widest text-white/50 mb-5">
+						<h4 className="text-xs font-medium uppercase tracking-widest text-white mb-5">
 							Navigáció
 						</h4>
 						<ul className="flex flex-col gap-3">
@@ -82,7 +82,7 @@ const Footer = () => {
 					</div>
 
 					<div>
-						<h4 className="text-xs font-medium uppercase tracking-widest text-white/50 mb-5">
+						<h4 className="text-xs font-medium uppercase tracking-widest text-white mb-5">
 							Jogi információk
 						</h4>
 						<ul className="flex flex-col gap-3">
