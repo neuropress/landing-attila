@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import AnimatedContent from "./gsap/AnimatedContent";
 import FadeContent from "./gsap/FadeContent";
 
@@ -68,13 +69,13 @@ const emptyForm: FormState = {
 };
 
 const Contact = () => {
+	const router = useRouter();
 	const [form, setForm] = useState<FormState>(emptyForm);
 	const [errors, setErrors] = useState<Errors>({});
-	const [submitted, setSubmitted] = useState(false);
+	const [sending, setSending] = useState(false);
 
 	useEffect(() => {
 		const handler = (e: CustomEvent<string>) => {
-			setSubmitted(false);
 			setForm((prev) => ({ ...prev, therapy: e.detail }));
 		};
 		window.addEventListener("selectTherapy", handler as EventListener);
@@ -115,8 +116,11 @@ const Contact = () => {
 			setErrors(e2);
 			return;
 		}
-		// API call will go here
-		setSubmitted(true);
+		setSending(true);
+		// TODO: replace setTimeout with real API call
+		setTimeout(() => {
+			router.push("/koszonjuk");
+		}, 2000);
 	};
 
 	const inputBase =
@@ -142,8 +146,7 @@ const Contact = () => {
 					threshold={0.3}
 					className="w-full">
 					<p className="text-lg font-light text-gray-500 text-center mb-16 w-full lg:w-1/2 mx-auto">
-						Töltsd ki az űrlapot és hamarosan felvesszük veled a kapcsolatot az
-						időpontegyeztetés érdekében.
+						{"Töltsd ki az \u0171rlapot és hamarosan felvesszük veled a kapcsolatot az id\u0151pontegyeztetés érdekében."}
 					</p>
 				</AnimatedContent>
 
@@ -156,15 +159,13 @@ const Contact = () => {
 						className="w-full lg:w-2/5 bg-primary-light rounded-2xl p-8 flex flex-col gap-8">
 						<div>
 							<h3 className="text-lg font-medium text-gray-900 mb-6">
-								Elérhetőségeink
+								{"Elérhet\u0151ségeink"}
 							</h3>
 							<ul className="flex flex-col gap-5">
 								{infoItems.map((item) => (
 									<li key={item.label} className="flex items-start gap-4">
 										<div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
-											<i
-												className={`${item.icon} text-(--primary-color) text-sm`}
-											/>
+											<i className={`${item.icon} text-(--primary-color) text-sm`} />
 										</div>
 										<div>
 											<p className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-0.5">
@@ -191,7 +192,7 @@ const Contact = () => {
 
 						<div>
 							<p className="text-xs font-medium text-gray-400 uppercase tracking-widest mb-4">
-								Kövess minket
+								{"Kövess minket"}
 							</p>
 							<div className="flex gap-3">
 								{socialLinks.map((s) => (
@@ -209,141 +210,118 @@ const Contact = () => {
 
 					{/* Right: form */}
 					<FadeContent className="w-full lg:flex-1">
-						{submitted ? (
-							<div className="h-full flex flex-col items-center justify-center text-center py-16 gap-4">
-								<div className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center mb-2">
-									<i className="fa-solid fa-circle-check text-(--primary-color) text-3xl" />
-								</div>
-								<h3 className="text-xl font-medium text-gray-900">
-									Köszönjük az üzeneted!
-								</h3>
-								<p className="text-gray-500 font-light">
-									Hamarosan felvesszük veled a kapcsolatot.
-								</p>
-								<button
-									onClick={() => {
-										setForm(emptyForm);
-										setSubmitted(false);
-									}}
-									className="mt-4 text-sm text-(--primary-color) hover:text-(--primary-dark) font-normal transition-colors">
-									Új üzenet küldése
-								</button>
+						<form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+							{/* Name */}
+							<div>
+								<label className="section-label block mb-1.5">
+									{"Teljes név"} <span className="text-red-400">*</span>
+								</label>
+								<input
+									type="text"
+									name="name"
+									value={form.name}
+									onChange={handleChange}
+									placeholder="Pl. Kovács Anna"
+									className={`${inputBase} ${errors.name ? inputError : inputNormal}`}
+								/>
+								{errors.name && (
+									<p className="mt-1 text-xs text-red-500">{errors.name}</p>
+								)}
 							</div>
-						) : (
-							<form
-								onSubmit={handleSubmit}
-								noValidate
-								className="flex flex-col gap-5">
-								{/* Name */}
+
+							{/* Phone + Email */}
+							<div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 								<div>
 									<label className="section-label block mb-1.5">
-										Teljes név <span className="text-red-400">*</span>
+										{"Telefonszám"} <span className="text-red-400">*</span>
 									</label>
 									<input
-										type="text"
-										name="name"
-										value={form.name}
+										type="tel"
+										name="phone"
+										value={form.phone}
 										onChange={handleChange}
-										placeholder="Pl. Kovács Anna"
-										className={`${inputBase} ${errors.name ? inputError : inputNormal}`}
+										placeholder="+36 30 000 0000"
+										className={`${inputBase} ${errors.phone ? inputError : inputNormal}`}
 									/>
-									{errors.name && (
-										<p className="mt-1 text-xs text-red-500">{errors.name}</p>
+									{errors.phone && (
+										<p className="mt-1 text-xs text-red-500">{errors.phone}</p>
 									)}
 								</div>
-
-								{/* Phone + Email */}
-								<div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-									<div>
-										<label className="section-label block mb-1.5">
-											Telefonszám <span className="text-red-400">*</span>
-										</label>
-										<input
-											type="tel"
-											name="phone"
-											value={form.phone}
-											onChange={handleChange}
-											placeholder="+36 30 000 0000"
-											className={`${inputBase} ${errors.phone ? inputError : inputNormal}`}
-										/>
-										{errors.phone && (
-											<p className="mt-1 text-xs text-red-500">
-												{errors.phone}
-											</p>
-										)}
-									</div>
-									<div>
-										<label className="section-label block mb-1.5">
-											E-mail cím <span className="text-red-400">*</span>
-										</label>
-										<input
-											type="email"
-											name="email"
-											value={form.email}
-											onChange={handleChange}
-											placeholder="pelda@email.hu"
-											className={`${inputBase} ${errors.email ? inputError : inputNormal}`}
-										/>
-										{errors.email && (
-											<p className="mt-1 text-xs text-red-500">
-												{errors.email}
-											</p>
-										)}
-									</div>
-								</div>
-
-								{/* Therapy picker */}
 								<div>
 									<label className="section-label block mb-1.5">
-										Érdeklődés tárgya <span className="text-red-400">*</span>
+										{"E-mail cím"} <span className="text-red-400">*</span>
 									</label>
-									<select
-										name="therapy"
-										value={form.therapy}
+									<input
+										type="email"
+										name="email"
+										value={form.email}
 										onChange={handleChange}
-										className={`${inputBase} ${errors.therapy ? inputError : inputNormal} appearance-none`}>
-										<option value="">Válassz terápiát…</option>
-										{therapyOptions.map((opt) => (
-											<option key={opt} value={opt}>
-												{opt}
-											</option>
-										))}
-									</select>
-									{errors.therapy && (
-										<p className="mt-1 text-xs text-red-500">
-											{errors.therapy}
-										</p>
-									)}
-								</div>
-
-								{/* Message */}
-								<div>
-									<label className="section-label block mb-1.5">
-										Üzenet <span className="text-red-400">*</span>
-									</label>
-									<textarea
-										name="message"
-										value={form.message}
-										onChange={handleChange}
-										rows={5}
-										placeholder="Írd le röviden a panaszaidat vagy kérdéseidet…"
-										className={`${inputBase} resize-none ${errors.message ? inputError : inputNormal}`}
+										placeholder="pelda@email.hu"
+										className={`${inputBase} ${errors.email ? inputError : inputNormal}`}
 									/>
-									{errors.message && (
-										<p className="mt-1 text-xs text-red-500">
-											{errors.message}
-										</p>
+									{errors.email && (
+										<p className="mt-1 text-xs text-red-500">{errors.email}</p>
 									)}
 								</div>
+							</div>
 
-								<button
-									type="submit"
-									className="primary-button self-start px-8 py-3 rounded-lg">
-									Üzenet küldése
-									<i className="fa-solid fa-paper-plane ml-2 text-sm" />
-								</button>
-							</form>
-						)}
+							{/* Therapy picker */}
+							<div>
+								<label className="section-label block mb-1.5">
+									{"Érdeklődés tárgya"} <span className="text-red-400">*</span>
+								</label>
+								<select
+									name="therapy"
+									value={form.therapy}
+									onChange={handleChange}
+									className={`${inputBase} ${errors.therapy ? inputError : inputNormal} appearance-none`}>
+									<option value="">{"Válassz terápiát\u2026"}</option>
+									{therapyOptions.map((opt) => (
+										<option key={opt} value={opt}>
+											{opt}
+										</option>
+									))}
+								</select>
+								{errors.therapy && (
+									<p className="mt-1 text-xs text-red-500">{errors.therapy}</p>
+								)}
+							</div>
+
+							{/* Message */}
+							<div>
+								<label className="section-label block mb-1.5">
+									{"Üzenet"} <span className="text-red-400">*</span>
+								</label>
+								<textarea
+									name="message"
+									value={form.message}
+									onChange={handleChange}
+									rows={5}
+									placeholder={"Írd le röviden a panaszaidat vagy kérdéseidet\u2026"}
+									className={`${inputBase} resize-none ${errors.message ? inputError : inputNormal}`}
+								/>
+								{errors.message && (
+									<p className="mt-1 text-xs text-red-500">{errors.message}</p>
+								)}
+							</div>
+
+							<button
+								type="submit"
+								disabled={sending}
+								className="primary-button self-start px-8 py-3 rounded-lg flex items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed transition-opacity">
+								{sending ? (
+									<>
+										<i className="fa-solid fa-circle-notch animate-spin text-sm" />
+										{"Küldés..."}
+									</>
+								) : (
+									<>
+										{"Üzenet küldése"}
+										<i className="fa-solid fa-paper-plane text-sm" />
+									</>
+								)}
+							</button>
+						</form>
 					</FadeContent>
 				</div>
 			</div>

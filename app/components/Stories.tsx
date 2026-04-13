@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import AnimatedContent from "./gsap/AnimatedContent";
 import FadeContent from "./gsap/FadeContent";
+import BackgroundLogo from "./BackgroundLogo";
 
 const testimonials = [
 	{
@@ -46,7 +47,9 @@ const showArrows = testimonials.length > SLIDES_PER_VIEW_DESKTOP;
 
 const Stories = () => {
 	return (
-		<section className="w-full py-20 bg-primary-light" id="stories">
+		<section
+			className="w-full py-20 bg-primary-light relative overflow-hidden"
+			id="stories">
 			<div className="max-w-7xl mx-auto px-4 md:px-8">
 				<AnimatedContent
 					distance={40}
@@ -177,6 +180,7 @@ const Stories = () => {
 					</div>
 				</FadeContent>
 			</div>
+			<BackgroundLogo orientation="left" />
 		</section>
 	);
 };

@@ -5,7 +5,7 @@ import FadeContent from "./gsap/FadeContent";
 
 const About = () => {
 	return (
-		<section className="w-full bg-white py-20" id="about">
+		<section className="w-full bg-white py-20 overflow-hidden" id="about">
 			<div className="max-w-7xl mx-auto px-4 md:px-8">
 				<div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 items-start">
 					<AnimatedContent

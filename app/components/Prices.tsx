@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import AnimatedContent from "./gsap/AnimatedContent";
 import FadeContent from "./gsap/FadeContent";
 

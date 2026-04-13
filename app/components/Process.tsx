@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedContent from "./gsap/AnimatedContent";
 import FadeContent from "./gsap/FadeContent";
+import BackgroundLogo from "./BackgroundLogo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,7 +57,12 @@ const HorizontalConnector = ({ delay }: { delay: number }) => {
 		});
 		return () => st.kill();
 	}, [delay]);
-	return <div ref={ref} className="w-full border-t-2 border-dashed border-gray-200" />;
+	return (
+		<div
+			ref={ref}
+			className="w-full border-t-2 border-dashed border-gray-200"
+		/>
+	);
 };
 
 const VerticalConnector = ({ delay }: { delay: number }) => {
@@ -75,20 +81,29 @@ const VerticalConnector = ({ delay }: { delay: number }) => {
 		return () => st.kill();
 	}, [delay]);
 	return (
-		<div ref={ref} className="flex-1 w-px border-l-2 border-dashed border-gray-200 my-2" />
+		<div
+			ref={ref}
+			className="flex-1 w-px border-l-2 border-dashed border-gray-200 my-2"
+		/>
 	);
 };
 
 const Process = () => {
 	return (
-		<section className="w-full pb-20 bg-white">
+		<section
+			className="w-full pb-20 bg-white relative overflow-hidden"
+			id="process">
 			<div className="max-w-7xl mx-auto px-4 md:px-8">
 				<AnimatedContent distance={40} duration={0.7} threshold={0.3}>
 					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
 						Hogyan működik a terápia?
 					</h2>
 				</AnimatedContent>
-				<AnimatedContent distance={30} duration={0.7} delay={0.15} threshold={0.3}>
+				<AnimatedContent
+					distance={30}
+					duration={0.7}
+					delay={0.15}
+					threshold={0.3}>
 					<p className="text-lg font-light text-gray-500 text-center mb-16 w-full lg:w-1/2 mx-auto">
 						Öt egyszerű lépésben a tünetmentes, kiegyensúlyozottabb élethez.
 					</p>
@@ -105,7 +120,9 @@ const Process = () => {
 								threshold={0.1}
 								className="flex flex-col items-center text-center flex-1">
 								<div className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center mb-5 ring-2 ring-white shadow-sm shrink-0">
-									<i className={`${step.icon} text-(--primary-color) text-xl`} />
+									<i
+										className={`${step.icon} text-(--primary-color) text-xl`}
+									/>
 								</div>
 								<span className="text-xs font-medium text-(--primary-color) uppercase tracking-widest mb-2">
 									{String(index + 1).padStart(2, "0")}
@@ -140,7 +157,9 @@ const Process = () => {
 									threshold={0.1}
 									className="shrink-0">
 									<div className="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center ring-2 ring-white shadow-sm">
-										<i className={`${step.icon} text-(--primary-color) text-base`} />
+										<i
+											className={`${step.icon} text-(--primary-color) text-base`}
+										/>
 									</div>
 								</AnimatedContent>
 								{index < steps.length - 1 && (
@@ -171,12 +190,19 @@ const Process = () => {
 					))}
 				</div>
 
-				<FadeContent duration={700} delay={400} threshold={0.2} className="w-full h-16 flex items-center justify-center mt-10">
-					<Link href="#contact" className="primary-button inline-block mx-auto py-2">
+				<FadeContent
+					duration={700}
+					delay={400}
+					threshold={0.2}
+					className="w-full h-16 flex items-center justify-center mt-10">
+					<Link
+						href="#contact"
+						className="primary-button inline-block mx-auto py-2">
 						Jelentkezem állapotfelmérésre!
 					</Link>
 				</FadeContent>
 			</div>
+			<BackgroundLogo orientation="left" />
 		</section>
 	);
 };
