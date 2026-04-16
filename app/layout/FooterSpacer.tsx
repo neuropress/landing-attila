@@ -18,10 +18,17 @@ const FooterSpacer = () => {
 		if (!height) return;
 
 		const snapToBottom = () => {
+			const active = document.activeElement;
+			const keyboardOpen =
+				active instanceof HTMLInputElement ||
+				active instanceof HTMLTextAreaElement ||
+				active instanceof HTMLSelectElement;
+			if (keyboardOpen) return;
+
 			const maxScroll =
 				document.documentElement.scrollHeight - window.innerHeight;
 			const remaining = maxScroll - window.scrollY;
-			if (remaining > 0 && remaining < height) {
+			if (remaining > 0 && remaining < height * 0.2) {
 				window.scrollTo({ top: maxScroll, behavior: "smooth" });
 			}
 		};
