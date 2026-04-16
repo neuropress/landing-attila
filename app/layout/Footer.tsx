@@ -32,7 +32,7 @@ const Footer = () => {
 								alt="Neuropress Logo"
 								width={250}
 								height={70}
-								className="object-contain brightness-0 invert"
+								className="object-contain brightness-0 invert hidden md:block"
 								priority={false}
 							/>
 						</Link>
