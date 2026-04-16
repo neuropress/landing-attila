@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
@@ -7,9 +7,11 @@ import FooterSpacer from "./layout/FooterSpacer";
 import LoadingScreen from "./components/LoadingScreen";
 import Script from "next/script";
 
-const inter = Inter({
+const montserrat = Montserrat({
 	subsets: ["latin", "latin-ext"],
-	variable: "--font-inter",
+	variable: "--font-montserrat",
+	weight: ["300", "400", "500", "600", "700", "800"],
+	style: ["normal", "italic"],
 	display: "swap",
 });
 
@@ -118,7 +120,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="hu" className={`h-full antialiased ${inter.variable}`}>
+		<html lang="hu" className={`h-full antialiased ${montserrat.variable}`}>
 			<head>
 				<meta
 					name="viewport"
