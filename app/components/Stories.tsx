@@ -294,11 +294,11 @@ const Stories = () => {
 						</>
 					)}
 					<div className="w-full h-16 flex items-center justify-center mt-10">
-						<Link
+						<a
 							href="#contact"
 							className="primary-button inline-block mx-auto py-2">
 							Szeretnék én is jól lenni!
-						</Link>
+						</a>
 					</div>
 				</FadeContent>
 			</div>

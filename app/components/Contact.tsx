@@ -148,7 +148,7 @@ const Contact = () => {
 	const inputError = "border-red-400 focus:border-red-400 focus:ring-red-100";
 
 	return (
-		<section id="contact" className="w-full py-20 bg-white">
+		<section className="w-full py-20 bg-white">
 			<div className="max-w-7xl mx-auto px-4 md:px-8">
 				<AnimatedContent
 					distance={40}
@@ -281,6 +281,7 @@ const Contact = () => {
 					{/* Right: form */}
 					<FadeContent className="w-full lg:flex-1">
 						<form
+							id="contact"
 							onSubmit={handleSubmit}
 							noValidate
 							className="flex flex-col gap-5">

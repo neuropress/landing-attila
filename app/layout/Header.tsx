@@ -127,6 +127,12 @@ const Header = () => {
 								</li>
 							))}
 						</ul>
+						<a
+							href="#contact"
+							className="primary-button mt-6"
+							onClick={() => setMenuOpen(false)}>
+							Jelentkezem!
+						</a>
 					</aside>
 				</div>
 			)}

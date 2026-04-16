@@ -195,11 +195,11 @@ const Process = () => {
 					delay={400}
 					threshold={0.2}
 					className="w-full h-16 flex items-center justify-center mt-10">
-					<Link
+					<a
 						href="#contact"
 						className="primary-button inline-block mx-auto py-2">
 						Jelentkezem állapotfelmérésre!
-					</Link>
+					</a>
 				</FadeContent>
 			</div>
 			<BackgroundLogo orientation="left" />
