@@ -167,11 +167,11 @@ html {
 	--text-color: #1b1b1b;
 	--primary-light: #f6fafa;
 	--primary-dark: #10707a;
-	--header-font: "Gotham", "Inter", Arial, sans-serif;
+	--header-font: "Gotham", var(--font-inter), Arial, sans-serif;
 }
 
 body {
-	font-family: "Gotham", "Inter", Arial, sans-serif;
+	font-family: "Gotham", var(--font-inter), Arial, sans-serif;
 	font-weight: 300;
 	background-color: var(--background-color);
 	color: var(--text-color);

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
@@ -7,10 +7,11 @@ import FooterSpacer from "./layout/FooterSpacer";
 import LoadingScreen from "./components/LoadingScreen";
 import Script from "next/script";
 
-// const geistSans = Geist({
-// 	variable: "--font-geist-sans",
-// 	subsets: ["latin"],
-// });
+const inter = Inter({
+	subsets: ["latin", "latin-ext"],
+	variable: "--font-inter",
+	display: "swap",
+});
 
 // const geistMono = Geist_Mono({
 // 	variable: "--font-geist-mono",
@@ -117,7 +118,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="hu" className="h-full antialiased">
+		<html lang="hu" className={`h-full antialiased ${inter.variable}`}>
 			<head>
 				<meta
 					name="viewport"
