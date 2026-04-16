@@ -29,7 +29,7 @@ const About = () => {
 							<div className="relative w-20 h-20 rounded-full overflow-hidden mb-6 shadow-md">
 								<Image
 									src="/images/attila.webp"
-									alt="Dr. Vargha Attila"
+									alt="Vargha Attila"
 									fill
 									className="object-cover object-center"
 									priority
@@ -42,9 +42,7 @@ const About = () => {
 								NeuroPress rendelőket, közel 20 éve.
 							</p>
 							<div className="border-t border-gray-200 w-16 mb-4" />
-							<p className="text-sm font-medium text-gray-900">
-								Dr. Vargha Attila
-							</p>
+							<p className="text-sm font-medium text-gray-900">Vargha Attila</p>
 							<p className="text-xs font-light text-gray-400 mt-1">
 								Alapító, Neuropress terapeuta
 							</p>
@@ -60,10 +58,12 @@ const About = () => {
 							Németországban nevelkedtem, majd ott végeztem közgazdasági szakon.
 							Mindig érdekelt az egészség és az azzal kapcsolatos témakörök.{" "}
 							<br />
+							<br />
 							2001-ben Magyarországra költöztem és a családi vállalkozásba
 							beléptem, ahol Édesapám ennek a terápiának az alapjait kidolgozta.
 							A terápia eredményei meggyőztek, így egyértelmű volt számomra,
 							hogy ezt szeretném tovább vinni és fejleszteni. <br />
+							<br />
 							Elvégeztem a természetgyógyászati iskolát reflexológiai
 							szakképesítéssel, valamint funkcionális táplálkozási- és
 							hormonegyensúly tanácsadó képesítéssel. Nincs nagyobb motiváció

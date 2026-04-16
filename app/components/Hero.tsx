@@ -13,11 +13,7 @@ const Hero = () => {
 	return (
 		<div className="min-h-screen flex flex-col bg-primary-light justify-center items-start relative overflow-hidden">
 			<div className="max-w-7xl mx-auto flex flex-col text-left px-8 md:px-0 z-10 w-full md:w-2/5 md:ml-8 lg:ml-20 xl:ml-32 mt-20 md:mt-0">
-				{/* <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-					Feltárjuk szűnni nem akaró kellemetlen tüneteid okait és célzottan
-					kezeljük azokat!
-				</h1> */}
-				<SplitText
+				{/* <SplitText
 					text="Feltárjuk szűnni nem akaró kellemetlen tüneteid okait és célzottan
 					kezeljük azokat!"
 					className="text-2xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
@@ -26,12 +22,16 @@ const Hero = () => {
 					textAlign="start"
 					tag="h1"
 					onLetterAnimationComplete={handleAnimationComplete}
-				/>
+					/> */}
 				<FadeContent
 					duration={1000}
 					ease="power2.out"
 					delay={500}
 					threshold={0.2}>
+					<h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+						Feltárjuk szűnni nem akaró kellemetlen tüneteid okait és célzottan
+						kezeljük azokat!
+					</h1>
 					<p className="text-lg md:text-xl text-gray-700 mb-8 font-light">
 						Neuropress - egyedileg továbbfejlesztett, reflexológián alapuló
 						komplex terápia
@@ -50,15 +50,24 @@ const Hero = () => {
 				className="hidden sm:block absolute rounded-[100px] w-125 h-125 md:w-175 md:h-175 lg:w-200 lg:h-200 xl:w-225 xl:h-225 2xl:w-275 2xl:h-275 -right-15 md:-right-20 lg:-right-25 xl:-right-50 2xl:-right-40 -top-30 md:-top-40 lg:-top-50 xl:-top-60 2xl:-top-70 -rotate-12 overflow-hidden animate-slide-in-from-left"
 				aria-hidden="true">
 				<Image
-					src="/images/attila.webp"
+					src="/images/567.webp"
 					alt="Vargha Attila, a Neuropress Terápia alapítója"
-					className="w-[130%] h-[130%] object-cover object-center rotate-[12deg] left-[-15%] top-[20%] absolute"
+					className="w-[130%] h-[130%] object-cover object-bottom-right rotate-[12deg] left-[-15%] top-[20%] absolute"
 					draggable="false"
 					style={{ pointerEvents: "none", userSelect: "none" }}
 					width={2000}
 					height={2000}
 					priority
 				/>
+			</div>
+			{/* Floating name badge */}
+			<div className="hidden sm:block absolute bottom-[12%] right-88 md:right-120 lg:right-144 xl:right-152 2xl:right-184 z-10 animate-slide-in-from-left">
+				<div className="bg-white/80 backdrop-blur-md rounded-2xl px-4 py-3 shadow-lg border border-white/60">
+					<p className="text-xs text-gray-400 font-light tracking-wide">
+						Neuropress alapítója
+					</p>
+					<p className="text-sm font-semibold text-gray-900">Vargha Attila</p>
+				</div>
 			</div>
 		</div>
 	);

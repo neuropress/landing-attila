@@ -51,7 +51,7 @@ const Header = () => {
 						<a
 							href="#contact"
 							className="primary-button hidden md:inline-block ml-auto shrink-0">
-							Kapcsolat
+							Jelentkezem!
 						</a>
 					</div>
 					{/* Hamburger button */}

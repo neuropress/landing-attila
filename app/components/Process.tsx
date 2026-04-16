@@ -105,7 +105,7 @@ const Process = () => {
 					delay={0.15}
 					threshold={0.3}>
 					<p className="text-lg font-light text-gray-500 text-center mb-16 w-full lg:w-1/2 mx-auto">
-						Öt egyszerű lépésben a tünetmentes, kiegyensúlyozottabb élethez.
+						5 egyszerű lépés a tünetmentes, kiegyensúlyozottabb élethez.
 					</p>
 				</AnimatedContent>
 

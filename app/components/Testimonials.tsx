@@ -7,35 +7,27 @@ import FadeContent from "./gsap/FadeContent";
 
 const testimonials = [
 	{
-		name: "Kovács Anna",
-		profileImage: "/images/profile.webp",
-		symptom: "Migrén és alvászavar",
+		name: "Trokán Nóra",
+		profileImage: "/images/testi/6.webp",
+		symptom: "színésznő",
 		solution:
-			"A Neuropress terápia után jelentős javulást tapasztaltam a migrénes fejfájásaimban, és az alvásom is sokkal pihentetőbb lett. Az életminőségem drámaian javult, és újra élvezhetem a mindennapokat fájdalom nélkül.",
+			"„A tudatosság nem más, mint az elménk fölötti hatalmunkra való ráébredés. A tudatosodás pedig az elme fölötti uralom gyakorlásának útja.” Büszkék vagyunk Trokán Nórára, amiért nem csak figyelt a szervezete jelzéseire, de képes volt a nehezebb utat választani és változtatni az egészsége érdekében. Ma már sokkal jobban érzi magát és az epegörcsök sem gyötrik.",
 		rating: 5,
 	},
 	{
-		name: "Nagy Péter",
-		profileImage: "/images/profile.webp",
-		symptom: "Stressz és szorongás",
+		name: "Szabó Zsófi",
+		profileImage: "/images/testi/5.webp",
+		symptom: "színésznő, műsorvezető",
 		solution:
-			"A Neuropress komplex megközelítése segített nekem abban, hogy jobban kezeljem a stresszt és a szorongást. Az életmódbeli tanácsok és a terápiás kezelések együttesen hozzájárultak ahhoz, hogy kiegyensúlyozottabbá váljak.",
+			"Szabó Zsófi évek óta szenved a migréntől. Már szinte az élete részévé vált a vissza-visszatérő, elviselhetetlen fájdalom, az átvirrasztott éjszakák, a kimerültség. Egy ismerősétől hallott először a NeuroPress Terápiáról és az esélytelenek nyugalmával érkezett az állapotfelmérésre, hiszen korábban már több gyógymód is hatástalannak bizonyult nála. Vargha Attila azonban rámutatott arra, hogy a migrén csupán a jéghegy csúcsa és az egész szervezetet kell vizsgálni.",
 		rating: 5,
 	},
 	{
-		name: "Szabó Eszter",
-		profileImage: "/images/profile.webp",
-		symptom: "Energiahiány és koncentrációs nehézségek",
+		name: "Polgár Odett",
+		profileImage: "/images/testi/4.webp",
+		symptom: "színésznő",
 		solution:
-			"A Neuropress terápia után sokkal energikusabbnak érzem magam, és a koncentrációs képességem is jelentősen javult. Az életmódbeli tanácsok segítettek abban, hogy egészségesebb szokásokat alakítsak ki.",
-		rating: 5,
-	},
-	{
-		name: "Tóth László",
-		profileImage: "/images/profile.webp",
-		symptom: "Izom- és ízületi fájdalom",
-		solution:
-			"A Neuropress terápia során tapasztaltam a legnagyobb javulást az izom- és ízületi fájdalmaimban. A kezelések és a tanácsok együttesen segítettek abban, hogy újra szabadon mozoghassak.",
+			"Polgár Odett színésznőként és édesanyaként is rengeteg stressznek van kitéve, ami hosszú távon az egészségére is hatással volt. A NeuroPress Terápia segítségével sikerült megtalálnia a belső egyensúlyt és megszabadulnia a krónikus fáradtságtól, ami korábban mindennapjait megnehezítette. Odett most már sokkal energikusabbnak érzi magát és képes teljes mértékben élvezni a munkáját és a családi életét.",
 		rating: 5,
 	},
 ];
@@ -61,19 +53,32 @@ const Testimonials = () => {
 	return (
 		<section className="w-full py-20 bg-primary-light">
 			<div className="max-w-7xl mx-auto px-4 md:px-8">
-				<AnimatedContent distance={40} duration={0.7} threshold={0.3} className="w-full">
+				<AnimatedContent
+					distance={40}
+					duration={0.7}
+					threshold={0.3}
+					className="w-full">
 					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center w-full lg:w-3/4 mx-auto">
 						Nekik már segítettünk
 					</h2>
 				</AnimatedContent>
-				<AnimatedContent distance={30} duration={0.7} delay={0.15} threshold={0.3} className="w-full">
+				<AnimatedContent
+					distance={30}
+					duration={0.7}
+					delay={0.15}
+					threshold={0.3}
+					className="w-full">
 					<p className="text-lg md:text-xl text-gray-700 mb-12 font-light text-center w-full lg:w-3/4 mx-auto">
 						Olvasd el, hogyan változtatta meg a Neuropress terápia a hozzánk
 						fordulók életét, és hogyan szabadultak meg kellemetlen tünetektől.
 					</p>
 				</AnimatedContent>
 
-				<FadeContent duration={800} delay={300} threshold={0.2} className="relative testimonials-swiper -mx-2 px-2 py-3 -my-3">
+				<FadeContent
+					duration={800}
+					delay={300}
+					threshold={0.2}
+					className="relative testimonials-swiper -mx-2 px-2 py-3 -my-3">
 					<Swiper
 						modules={[Autoplay, Navigation]}
 						spaceBetween={24}
