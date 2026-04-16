@@ -44,7 +44,7 @@ const About = () => {
 							<div className="border-t border-gray-200 w-16 mb-4" />
 							<p className="text-sm font-medium text-gray-900">Vargha Attila</p>
 							<p className="text-xs font-light text-gray-400 mt-1">
-								Alapító, Neuropress terapeuta
+								Intézményvezető
 							</p>
 						</div>
 					</AnimatedContent>

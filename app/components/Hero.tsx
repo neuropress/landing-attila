@@ -64,7 +64,7 @@ const Hero = () => {
 			<div className="hidden sm:block absolute bottom-[12%] right-88 md:right-120 lg:right-144 xl:right-152 2xl:right-184 z-10 animate-slide-in-from-left">
 				<div className="bg-white/80 backdrop-blur-md rounded-2xl px-4 py-3 shadow-lg border border-white/60">
 					<p className="text-xs text-gray-400 font-light tracking-wide">
-						Neuropress alapítója
+						Intézményvezető
 					</p>
 					<p className="text-sm font-semibold text-gray-900">Vargha Attila</p>
 				</div>
