@@ -1,16 +1,10 @@
 "use server";
 
-// nodemailer ships without TypeScript types
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const nodemailer: {
-	createTransport: (opts: Record<string, unknown>) => {
-		sendMail: (opts: Record<string, unknown>) => Promise<unknown>;
-	};
-} = require("nodemailer");
+import nodemailer from "nodemailer";
 
 const LOCATION_EMAILS: Record<string, string> = {
-	"Budapest XI. ker": "neuropress11@gmail.com",
-	Szeged: "vargha.szeged@gmail.com",
+	"Budapest XI. ker": "dani.szoverfi@prismasolutions.ro",
+	Szeged: "dany2002dany02@gmail.com",
 	Kecskemét: "vargha.kecskemet@gmail.com",
 };
 
@@ -32,11 +26,17 @@ export type ContactInput = {
 
 export type ContactResult =
 	| { ok: true }
-	| { ok: false; error: string; fieldErrors?: Partial<Record<keyof ContactInput, string>> };
+	| {
+			ok: false;
+			error: string;
+			fieldErrors?: Partial<Record<keyof ContactInput, string>>;
+	  };
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export async function sendContactEmail(input: ContactInput): Promise<ContactResult> {
+export async function sendContactEmail(
+	input: ContactInput,
+): Promise<ContactResult> {
 	const name = (input.name ?? "").trim();
 	const phone = (input.phone ?? "").trim();
 	const email = (input.email ?? "").trim();
@@ -48,11 +48,14 @@ export async function sendContactEmail(input: ContactInput): Promise<ContactResu
 	if (!name) fieldErrors.name = "A név megadása kötelező.";
 	if (!phone) fieldErrors.phone = "A telefonszám megadása kötelező.";
 	if (!email) fieldErrors.email = "Az e-mail cím megadása kötelező.";
-	else if (!EMAIL_REGEX.test(email)) fieldErrors.email = "Érvényes e-mail címet adj meg.";
+	else if (!EMAIL_REGEX.test(email))
+		fieldErrors.email = "Érvényes e-mail címet adj meg.";
 	if (!therapy) fieldErrors.therapy = "Kérjük, válassz egy terápiát.";
-	else if (!THERAPY_OPTIONS.has(therapy)) fieldErrors.therapy = "Érvénytelen terápia.";
+	else if (!THERAPY_OPTIONS.has(therapy))
+		fieldErrors.therapy = "Érvénytelen terápia.";
 	if (!location) fieldErrors.location = "Kérjük, válassz egy rendelőt.";
-	else if (!(location in LOCATION_EMAILS)) fieldErrors.location = "Érvénytelen rendelő.";
+	else if (!(location in LOCATION_EMAILS))
+		fieldErrors.location = "Érvénytelen rendelő.";
 	if (!message) fieldErrors.message = "Az üzenet megadása kötelező.";
 
 	if (Object.keys(fieldErrors).length > 0) {
@@ -125,7 +128,10 @@ export async function sendContactEmail(input: ContactInput): Promise<ContactResu
 		]);
 	} catch (err) {
 		console.error("Failed to send contact email:", err);
-		return { ok: false, error: "Nem sikerült elküldeni az üzenetet. Próbáld újra később." };
+		return {
+			ok: false,
+			error: "Nem sikerült elküldeni az üzenetet. Próbáld újra később.",
+		};
 	}
 
 	return { ok: true };
