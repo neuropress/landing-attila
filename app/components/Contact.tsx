@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import AnimatedContent from "./gsap/AnimatedContent";
 import FadeContent from "./gsap/FadeContent";
+import { sendContactEmail } from "@/app/actions/contact";
 
 const therapyOptions = [
 	"Neuropress állapotfelmérés",
@@ -25,22 +26,22 @@ const locations: Record<
 > = {
 	"Budapest XI. ker": {
 		address: "1117 Budapest, Fehérvári út 23. I/11.",
-		phone: "+36 30 123 4567",
-		phoneHref: "tel:+36301234567",
+		phone: "+36-30/434-7094",
+		phoneHref: "tel:+36304347094",
 		hours: "Hétfő – Péntek 07:00 – 21:00",
 		email: "neuropress11@gmail.com",
 	},
 	Szeged: {
 		address: "6724 Szeged, Kálvária tér 16. I/D",
-		phone: "+36 30 234 5678",
-		phoneHref: "tel:+36302345678",
+		phone: "+36-30/372-4600",
+		phoneHref: "tel:+36303724600",
 		hours: "Hétfő – Péntek 07:00 – 21:00",
 		email: "vargha.szeged@gmail.com",
 	},
 	Kecskemét: {
 		address: "6000 Kecskemét, Vízöntő u. 9.",
-		phone: "+36 30 345 6789",
-		phoneHref: "tel:+36303456789",
+		phone: "+36-30/944-2528",
+		phoneHref: "tel:+36309442528",
 		hours: "Hétfő – Péntek 07:00 – 21:00",
 		email: "vargha.kecskemet@gmail.com",
 	},
@@ -128,18 +129,33 @@ const Contact = () => {
 		}
 	};
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	const [submitError, setSubmitError] = useState<string | null>(null);
+
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const e2 = validate();
 		if (Object.keys(e2).length > 0) {
 			setErrors(e2);
 			return;
 		}
+		setSubmitError(null);
 		setSending(true);
-		// TODO: replace setTimeout with real API call
-		setTimeout(() => {
-			router.push("/koszonjuk");
-		}, 2000);
+		try {
+			const result = await sendContactEmail(form);
+			if (result.ok) {
+				router.push("/koszonjuk");
+				return;
+			}
+			if (result.fieldErrors) {
+				setErrors(result.fieldErrors);
+			}
+			setSubmitError(result.error);
+		} catch (err) {
+			console.error(err);
+			setSubmitError("Nem sikerült elküldeni az üzenetet. Próbáld újra később.");
+		} finally {
+			setSending(false);
+		}
 	};
 
 	const inputBase =
@@ -403,6 +419,12 @@ const Contact = () => {
 									<p className="mt-1 text-xs text-red-500">{errors.message}</p>
 								)}
 							</div>
+
+							{submitError && (
+								<p className="text-sm text-red-500" aria-live="polite">
+									{submitError}
+								</p>
+							)}
 
 							<button
 								type="submit"

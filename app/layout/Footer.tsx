@@ -12,7 +12,7 @@ const navLinks = [
 const legalLinks = [
 	{ href: "/adatvedelmi-tajekoztato", label: "Adatvédelmi tájékoztató" },
 	{ href: "/cookie-szabalyzat", label: "Cookie szabályzat" },
-	{ href: "/aszf", label: "Általános szerződési feltételek" },
+	// { href: "/aszf", label: "Általános szerződési feltételek" },
 ];
 
 const Footer = () => {

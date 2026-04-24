@@ -8,43 +8,48 @@ const STEP_DURATION = 4000;
 const symptoms = [
 	{
 		icon: "fa-regular fa-head-side-cough",
-		title: "Fejfájás, migrén",
-		image: "/images/stock/7.webp",
+		title: "Allergiás panaszok",
+		image: "/images/stock/19.webp",
 	},
 	{
 		icon: "fa-regular fa-bed",
-		title: "Alvászavar, fáradtság",
-		image: "/images/stock/3.webp",
+		title: "Nőgyógyászati problémák",
+		image: "/images/stock/16.webp",
 	},
 	{
 		icon: "fa-regular fa-heart-pulse",
-		title: "Stressz, szorongás",
-		image: "/images/stock/4.webp",
+		title: "Bőrgyógyászati panaszok",
+		image: "/images/stock/14.webp",
 	},
 	{
 		icon: "fa-regular fa-bolt",
-		title: "Energiahiány",
-		image: "/images/stock/6.webp",
+		title: "Idegrendszeri panaszok",
+		image: "/images/stock/15.webp",
 	},
 	{
 		icon: "fa-regular fa-face-smile",
-		title: "Hangulatingadozás",
-		image: "/images/stock/8.webp",
+		title: "Hormonális zavarok",
+		image: "/images/stock/18.webp",
 	},
 	{
 		icon: "fa-regular fa-bone",
-		title: "Izom- és ízületi fájdalom",
+		title: "Mozgásszervi és izületi panaszok",
 		image: "/images/stock/5.webp",
 	},
 	{
 		icon: "fa-regular fa-utensils",
-		title: "Emésztési panaszok",
-		image: "/images/stock/9.webp",
+		title: "Cukorbetegség",
+		image: "/images/stock/13.webp",
 	},
 	{
 		icon: "fa-regular fa-shield",
-		title: "Immunrendszer gyengesége",
-		image: "/images/stock/2.webp",
+		title: "Érrendszeri panaszok",
+		image: "/images/stock/17.webp",
+	},
+	{
+		icon: "fa-regular fa-brain",
+		title: "Immunrendszeri zavarok",
+		image: "/images/stock/11.webp",
 	},
 ];
 
@@ -100,8 +105,8 @@ const Symptoms2 = () => {
 									key={index}
 									src={symptom.image}
 									alt={symptom.title}
-									fill
 									sizes="(max-width: 1024px) 100vw, 50vw"
+									fill
 									className={`object-cover transition-opacity duration-700 ${
 										index === activeIndex ? "opacity-100" : "opacity-0"
 									}`}

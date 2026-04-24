@@ -26,7 +26,7 @@ const steps = [
 		icon: "fa-solid fa-clipboard-list",
 		title: "Állapotfelmérés",
 		description:
-			"Eljössz egy állapotfelmérésre, ahol részletesen feltérképezzük tüneteid és egészségtörténeted.",
+			"Részletesen feltérképezzük tüneteid mögött húzódó kiváltó okokat és felállítjuk egyénre szabottan a komplex kezelési terved.",
 	},
 	{
 		icon: "fa-solid fa-hand-holding-medical",

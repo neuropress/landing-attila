@@ -6,6 +6,16 @@ import ScrollStack, { ScrollStackItem } from "./gsap/ScrollStack";
 
 const blocks = [
 	{
+		borderColor: "border-l-[var(--accent-color)]",
+		tagColor: "text-(--accent-color)",
+		tag: "Terápia",
+		title: "Személyre szabott kezelési terv",
+		body: "Nincs két egyforma páciens – ezért nincs két egyforma terápia sem. A reflexológián alapuló Neuropress módszer olyan intenzitású ingerekkel dolgozik, ahol az idegrendszer már reagálni kezd, és az fMRI kutatások által igazolt megközelítésünk nem a tüneteket kezeli, hanem a működést állítja helyre az idegrendszeri inger-válasz-változások révén.",
+		image: "/images/neur/2.webp",
+		imageAlt: "Személyre szabott kezelés",
+		imageRight: false,
+	},
+	{
 		borderColor: "border-l-[var(--primary-color)]",
 		tagColor: "text-(--primary-color)",
 		tag: "Tünetek",
@@ -14,16 +24,6 @@ const blocks = [
 		image: "/images/neur/1.webp",
 		imageAlt: "Tünetek feltárása",
 		imageRight: true,
-	},
-	{
-		borderColor: "border-l-[var(--accent-color)]",
-		tagColor: "text-(--accent-color)",
-		tag: "Terápia",
-		title: "Személyre szabott kezelési terv",
-		body: "Nincs két egyforma páciens – ezért nincs két egyforma terápia sem. Az állapotfelmérés eredményei alapján személyre szabott kezelési tervet állítunk össze, amely pontosan a te szervezeted igényeire van hangolva. A reflexológián alapuló Neuropress módszer célzottan hat az idegrendszerre.",
-		image: "/images/neur/2.webp",
-		imageAlt: "Személyre szabott kezelés",
-		imageRight: false,
 	},
 	{
 		borderColor: "border-l-[var(--secondary-color)]",

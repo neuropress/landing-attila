@@ -29,8 +29,7 @@ const Hero = () => {
 					delay={500}
 					threshold={0.2}>
 					<h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-						Feltárjuk szűnni nem akaró kellemetlen tüneteid okait és célzottan
-						kezeljük azokat!
+						Amikor már mindent kipróbáltál és még sincs eredmény
 					</h1>
 					<p className="text-lg md:text-xl text-gray-700 mb-8 font-light">
 						Neuropress - egyedileg továbbfejlesztett, reflexológián alapuló

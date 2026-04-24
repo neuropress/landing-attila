@@ -7,7 +7,11 @@ const cards = [
 		icon: "fa-solid fa-magnifying-glass-chart",
 		title: "Neuropress állapotfelmérés",
 		items: [
-			{ label: "Állapotfelmérés (1–1,5 óra)", price: "45 000 Ft" },
+			{
+				label: "Állapotfelmérés (1–1,5 óra)",
+				price: "45 000 Ft",
+				info: "Részletes feltérképezés, amely alapján meghatározzuk a személyre szabott kezelési terved.",
+			},
 			// { label: "Állapotfelmérés – Dunaszerdahely (SK)", price: "145 €" },
 		],
 		link: { href: "#contact", label: "Jelentkezem állapotfelmérésre" },
@@ -16,11 +20,19 @@ const cards = [
 		icon: "fa-solid fa-hand-holding-medical",
 		title: "Neuropress kezelések",
 		items: [
-			{ label: "Budapest XI. és XII. ker. (50 perc)", price: "15 000 Ft" },
-			{ label: "Kecskemét, Szeged (50 perc)", price: "13 500 Ft" },
-			// { label: "Győr (50 perc)", price: "14 000 Ft" },
-			// { label: "Dunaszerdahely – 50 perc", price: "40 €" },
-			// { label: "Dunaszerdahely – 25 perc", price: "30 €" },
+			{
+				label: "Budapest XI. és XII. ker. (50 perc)",
+				price: "15 000 Ft",
+				info: "50 perc célzott,  hatékony kezelés",
+			},
+			{
+				label: "Kecskemét, Szeged (50 perc)",
+				price: "13 500 Ft",
+				info: "50 perc célzott,  hatékony kezelés",
+			},
+			// { label: "Győr (50 perc)", price: "14 000 Ft", info: "" },
+			// { label: "Dunaszerdahely – 50 perc", price: "40 €", info: "" },
+			// { label: "Dunaszerdahely – 25 perc", price: "30 €", info: "" },
 		],
 		link: { href: "#contact", label: "Időpontot kérek" },
 	},
@@ -28,8 +40,8 @@ const cards = [
 		icon: "fa-solid fa-rotate",
 		title: "Neuropress felülvizsgálat",
 		items: [
-			{ label: "Felülvizsgálat", price: "20 000 Ft" },
-			// { label: "Felülvizsgálat – Dunaszerdahely (SK)", price: "65 €" },
+			{ label: "Felülvizsgálat", price: "20 000 Ft", info: "" },
+			// { label: "Felülvizsgálat – Dunaszerdahely (SK)", price: "65 €", info: "" },
 		],
 		link: { href: "#contact", label: "Időpontot kérek" },
 	},
@@ -37,8 +49,12 @@ const cards = [
 		icon: "fa-solid fa-wave-square",
 		title: "Biorezonancia vizsgálat",
 		items: [
-			{ label: "Biorezonancia vizsgálat (1 óra)", price: "20 000 Ft" },
-			// { label: "Biorezonancia – Dunaszerdahely (SK)", price: "65 €" },
+			{
+				label: "Biorezonancia vizsgálat (1 óra)",
+				price: "20 000 Ft",
+				info: "",
+			},
+			// { label: "Biorezonancia – Dunaszerdahely (SK)", price: "65 €", info: "" },
 		],
 		link: { href: "#contact", label: "Érdekel a vizsgálat" },
 	},
@@ -93,12 +109,17 @@ const Prices = () => {
 							<ul className="flex flex-col gap-4 flex-1 mb-6">
 								{card.items.map((item, i) => (
 									<li key={i}>
-										<p className="text-xs font-light text-gray-400 mb-0.5">
+										<p className="text-xs text-gray-600  mb-0.5">
 											{item.label}
 										</p>
 										<p className="text-xl font-medium text-(--primary-color)">
 											{item.price}
 										</p>
+										{item.info && (
+											<p className="text-xs font-light text-gray-400 mt-1">
+												{item.info}
+											</p>
+										)}
 									</li>
 								))}
 							</ul>
