@@ -5,6 +5,7 @@ import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import FooterSpacer from "./layout/FooterSpacer";
 import LoadingScreen from "./components/LoadingScreen";
+import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 
 const montserrat = Montserrat({
@@ -167,6 +168,7 @@ export default function RootLayout({
 					}}
 				/>
 			</head>
+			<GoogleTagManager gtmId="GTM-NBHLGKN7" />
 			<body className="min-h-full flex flex-col">
 				<Script
 					src="https://kit.fontawesome.com/0e7d01b6b6.js"
