@@ -29,7 +29,7 @@ const locations: Record<
 		phone: "+36-30/434-7094",
 		phoneHref: "tel:+36304347094",
 		hours: "Hétfő – Péntek 07:00 – 21:00",
-		email: "neuropress11@gmail.com",
+		email: "dani.szoverfi@prismasolutions.ro",
 	},
 	Szeged: {
 		address: "6724 Szeged, Kálvária tér 16. I/D",
@@ -152,7 +152,9 @@ const Contact = () => {
 			setSubmitError(result.error);
 		} catch (err) {
 			console.error(err);
-			setSubmitError("Nem sikerült elküldeni az üzenetet. Próbáld újra később.");
+			setSubmitError(
+				"Nem sikerült elküldeni az üzenetet. Próbáld újra később.",
+			);
 		} finally {
 			setSending(false);
 		}
