@@ -29,14 +29,14 @@ const locations: Record<
 		phone: "+36-30/434-7094",
 		phoneHref: "tel:+36304347094",
 		hours: "Hétfő – Péntek 07:00 – 21:00",
-		email: "dani.szoverfi@prismasolutions.ro",
+		email: "neuropress11@gmail.com",
 	},
 	Szeged: {
 		address: "6724 Szeged, Kálvária tér 16. I/D",
 		phone: "+36-30/372-4600",
 		phoneHref: "tel:+36303724600",
 		hours: "Hétfő – Péntek 07:00 – 21:00",
-		email: "dany2002dany02@gmail.com",
+		email: "vargha.szeged@gmail.com",
 	},
 	Kecskemét: {
 		address: "6000 Kecskemét, Vízöntő u. 9.",

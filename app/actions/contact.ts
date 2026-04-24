@@ -3,8 +3,8 @@
 import nodemailer from "nodemailer";
 
 const LOCATION_EMAILS: Record<string, string> = {
-	"Budapest XI. ker": "dani.szoverfi@prismasolutions.ro",
-	Szeged: "dany2002dany02@gmail.com",
+	"Budapest XI. ker": "neuropress11@gmail.com",
+	Szeged: "vargha.szeged@gmail.com",
 	Kecskemét: "vargha.kecskemet@gmail.com",
 };
 
@@ -83,7 +83,7 @@ export async function sendContactEmail(
 	});
 
 	const operatorText = [
-		"Új megkeresés érkezett a NeuroPress honlapról:",
+		"Új megkeresés érkezett a NeuroPress landing oldalról:",
 		"",
 		`Név: ${name}`,
 		`Telefon: ${phone}`,
