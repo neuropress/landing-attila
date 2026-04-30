@@ -143,7 +143,7 @@ const Contact = () => {
 		try {
 			const result = await sendContactEmail(form);
 			if (result.ok) {
-				router.push("/koszonjuk");
+				window.location.href = "/koszonjuk";
 				return;
 			}
 			if (result.fieldErrors) {
