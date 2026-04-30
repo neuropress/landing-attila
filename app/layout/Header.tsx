@@ -48,11 +48,11 @@ const Header = () => {
 								</li>
 							))}
 						</ul>
-						<Link
-							href="/#contact"
+						<a
+							href="#contact"
 							className="primary-button hidden md:inline-block ml-auto shrink-0">
 							Jelentkezem!
-						</Link>
+						</a>
 					</div>
 					{/* Hamburger button */}
 					<button
