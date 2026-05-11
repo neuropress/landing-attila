@@ -23,7 +23,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
 	title: {
-		default: "Neuropress Terápia | Reflexológia & Biorezonancia Budapest",
+		default: "Neuropress Terápia és Biorezonancia | Vargha Attila",
 		template: "%s | Neuropress Terápia",
 	},
 	description:
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 		"immunrendszer erősítés",
 	],
 	authors: [{ name: "Vargha Attila" }],
-	creator: "Neuropress Terápia",
+	creator: "Prisma Solutions",
 	publisher: "Neuropress Terápia",
 	metadataBase: new URL("https://neuropress.hu"),
 	alternates: {
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 		type: "website",
 		locale: "hu_HU",
 		url: "https://neuropress.hu",
-		title: "Neuropress Terápia | Reflexológia & Biorezonancia Budapest",
+		title: "Neuropress Terápia és Biorezonancia | Vargha Attila",
 		description:
 			"Tartós megoldás fejfájásra, stresszre és alvászavarra. Neuropress reflexológiai terápia Budapesten – személyre szabott kezelés, 20+ év tapasztalattal.",
 		siteName: "Neuropress Terápia",
@@ -62,13 +62,13 @@ export const metadata: Metadata = {
 				url: "/images/og-image.webp",
 				width: 1200,
 				height: 630,
-				alt: "Neuropress Terápia – Reflexológia és Biorezonancia Budapest",
+				alt: "Neuropress Terápia és Biorezonancia | Vargha Attila",
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Neuropress Terápia | Reflexológia & Biorezonancia Budapest",
+		title: "Neuropress Terápia és Biorezonancia | Vargha Attila",
 		description:
 			"Tartós megoldás fejfájásra, stresszre és alvászavarra. Személyre szabott Neuropress reflexológiai terápia Budapesten.",
 		images: ["/images/twitter-image.webp"],
