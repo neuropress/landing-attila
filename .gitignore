@@ -16,6 +16,7 @@
 # next.js
 /.next/
 /out/
+FRONTEND_INTEGRATION.md
 
 # production
 /build

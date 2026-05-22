@@ -134,5 +134,48 @@ export async function sendContactEmail(
 		};
 	}
 
+	await saveSubmission({
+		name,
+		email,
+		phone,
+		message,
+		service_name: therapy,
+		location,
+	});
+
 	return { ok: true };
+}
+
+async function saveSubmission(payload: {
+	name: string;
+	email: string;
+	phone: string;
+	message: string;
+	service_name: string;
+	location: string;
+}): Promise<void> {
+	const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+	const apiKey = process.env.CONTACT_API_KEY;
+	if (!apiUrl || !apiKey) {
+		console.error("Missing API configuration for submission save");
+		return;
+	}
+
+	try {
+		const res = await fetch(`${apiUrl}/api/contact`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				"X-Api-Key": apiKey,
+			},
+			body: JSON.stringify(payload),
+		});
+
+		if (!res.ok) {
+			const data = await res.json().catch(() => ({}));
+			console.error("Submission save failed:", res.status, data);
+		}
+	} catch (err) {
+		console.error("Submission save request error:", err);
+	}
 }
