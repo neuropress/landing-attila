@@ -6,7 +6,7 @@ import AnimatedContent from "./gsap/AnimatedContent";
 
 const VIDEO_ID = "pTLleXEf1sw";
 
-const VideoSection = () => {
+export default function VideoSection() {
 	const [open, setOpen] = useState(false);
 	const [mounted, setMounted] = useState(false);
 
@@ -21,46 +21,16 @@ const VideoSection = () => {
 		return () => document.removeEventListener("keydown", onKey);
 	}, [open]);
 
-	const modal = (
-		<div
-			className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4"
-			onClick={() => setOpen(false)}>
-			<div
-				className="w-full max-w-[calc(90vh*16/9)]"
-				onClick={(e) => e.stopPropagation()}>
-				{/* padding-bottom hack: universally supported alternative to aspect-ratio */}
-				<div className="relative h-0 overflow-hidden rounded-2xl" style={{ paddingBottom: "56.25%" }}>
-					<iframe
-						className="absolute inset-0 w-full h-full"
-						src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&playsinline=1&rel=0`}
-						title="YouTube video player"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						referrerPolicy="strict-origin-when-cross-origin"
-						allowFullScreen
-					/>
-				</div>
-				<button
-					onClick={() => setOpen(false)}
-					className="block mt-3 ml-auto text-white hover:text-gray-300 transition-colors cursor-pointer"
-					aria-label="Bezárás">
-					<i className="fa-solid fa-xmark text-2xl" />
-				</button>
-			</div>
-		</div>
-	);
-
 	return (
 		<section className="w-full py-15 bg-[var(--primary-light)]">
 			<div className="max-w-4xl mx-auto px-4 md:px-8">
-				<AnimatedContent
-					distance={40}
-					duration={0.7}
-					threshold={0.3}
-					className="w-full">
+				<AnimatedContent distance={40} duration={0.7} threshold={0.3} className="w-full">
+					{/* Thumbnail trigger */}
 					<button
 						onClick={() => setOpen(true)}
-						className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl group cursor-pointer block"
-						aria-label="Videó lejátszása">
+						className="relative w-full rounded-3xl overflow-hidden shadow-xl group cursor-pointer block"
+						aria-label="Videó lejátszása"
+						style={{ paddingBottom: "56.25%" }}>
 						<Image
 							src={`https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
 							alt="Videó előnézet"
@@ -77,9 +47,42 @@ const VideoSection = () => {
 				</AnimatedContent>
 			</div>
 
-			{mounted && open && createPortal(modal, document.body)}
+			{/* Modal — portalled to document.body to escape any stacking context */}
+			{mounted &&
+				open &&
+				createPortal(
+					<div
+						role="dialog"
+						aria-modal="true"
+						aria-label="Videó lejátszó"
+						className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/80 p-4"
+						onClick={() => setOpen(false)}>
+						<div
+							className="w-full max-w-4xl"
+							onClick={(e) => e.stopPropagation()}>
+							{/* 16:9 responsive wrapper — padding-bottom trick works on all browsers/iOS versions */}
+							<div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+								<iframe
+									className="absolute inset-0 w-full h-full rounded-2xl"
+									src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&playsinline=1&rel=0`}
+									title="YouTube video player"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									referrerPolicy="strict-origin-when-cross-origin"
+									allowFullScreen
+									loading="lazy"
+								/>
+							</div>
+							<button
+								onClick={() => setOpen(false)}
+								className="mt-4 flex items-center gap-2 ml-auto text-white/80 hover:text-white transition-colors cursor-pointer"
+								aria-label="Bezárás">
+								<span className="text-sm">Bezárás</span>
+								<i className="fa-solid fa-xmark text-lg" />
+							</button>
+						</div>
+					</div>,
+					document.body
+				)}
 		</section>
 	);
-};
-
-export default VideoSection;
+}
