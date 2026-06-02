@@ -9,10 +9,16 @@ const Hero = () => {
 				<h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
 					Amikor már mindent kipróbáltál és még sincs eredmény
 				</h1>
-				<p className="text-lg md:text-xl text-gray-700 mb-8 font-light">
+				<p className="text-lg md:text-xl text-gray-700 font-light">
 					Neuropress - egyedileg továbbfejlesztett, reflexológián alapuló
 					komplex terápia
 				</p>
+				<div>
+					<span className="text-2xl text-primary font-medium my-4 inline-block">
+						<i className="fas fa-location-dot mr-2" />
+						Budapest - Szeged - Kecskemét
+					</span>
+				</div>
 				<div>
 					<a href="#contact" className="primary-button inline-block">
 						Jelentkezem állapotfelmérésre!

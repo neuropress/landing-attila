@@ -8,6 +8,7 @@ import Process from "./components/Process";
 import Prices from "./components/Prices";
 import AboutCure from "./components/AboutCure";
 import Stories from "./components/Stories";
+import VideoSection from "./components/VideoSection";
 import Contact from "./components/Contact";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
 		<main className="relative z-10">
 			<Hero />
 			<Symptoms2 />
+			<VideoSection />
 			<Stories />
 			<About />
 			<Process />
