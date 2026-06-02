@@ -26,19 +26,22 @@ const VideoSection = () => {
 			className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4"
 			onClick={() => setOpen(false)}>
 			<div
-				className="relative w-full max-w-[calc(90vh*16/9)] aspect-video"
+				className="w-full max-w-[calc(90vh*16/9)]"
 				onClick={(e) => e.stopPropagation()}>
-				<iframe
-					className="absolute inset-0 w-full h-full rounded-2xl"
-					src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
-					title="YouTube video player"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					referrerPolicy="strict-origin-when-cross-origin"
-					allowFullScreen
-				/>
+				{/* padding-bottom hack: universally supported alternative to aspect-ratio */}
+				<div className="relative h-0 overflow-hidden rounded-2xl" style={{ paddingBottom: "56.25%" }}>
+					<iframe
+						className="absolute inset-0 w-full h-full"
+						src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&playsinline=1&rel=0`}
+						title="YouTube video player"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerPolicy="strict-origin-when-cross-origin"
+						allowFullScreen
+					/>
+				</div>
 				<button
 					onClick={() => setOpen(false)}
-					className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors cursor-pointer"
+					className="block mt-3 ml-auto text-white hover:text-gray-300 transition-colors cursor-pointer"
 					aria-label="Bezárás">
 					<i className="fa-solid fa-xmark text-2xl" />
 				</button>
