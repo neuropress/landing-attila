@@ -26,7 +26,7 @@ const VideoSection = () => {
 			className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4"
 			onClick={() => setOpen(false)}>
 			<div
-				className="relative w-[min(100%,calc(90svh*16/9))] aspect-video"
+				className="relative w-full max-w-[calc(90vh*16/9)] aspect-video"
 				onClick={(e) => e.stopPropagation()}>
 				<iframe
 					className="absolute inset-0 w-full h-full rounded-2xl"
