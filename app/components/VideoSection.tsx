@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import AnimatedContent from "./gsap/AnimatedContent";
 
@@ -7,6 +8,11 @@ const VIDEO_ID = "pTLleXEf1sw";
 
 const VideoSection = () => {
 	const [open, setOpen] = useState(false);
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
 
 	useEffect(() => {
 		if (!open) return;
@@ -15,10 +21,39 @@ const VideoSection = () => {
 		return () => document.removeEventListener("keydown", onKey);
 	}, [open]);
 
+	const modal = (
+		<div
+			className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4"
+			onClick={() => setOpen(false)}>
+			<div
+				className="relative w-[min(100%,calc(90svh*16/9))] aspect-video"
+				onClick={(e) => e.stopPropagation()}>
+				<iframe
+					className="absolute inset-0 w-full h-full rounded-2xl"
+					src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
+					title="YouTube video player"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerPolicy="strict-origin-when-cross-origin"
+					allowFullScreen
+				/>
+				<button
+					onClick={() => setOpen(false)}
+					className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors cursor-pointer"
+					aria-label="Bezárás">
+					<i className="fa-solid fa-xmark text-2xl" />
+				</button>
+			</div>
+		</div>
+	);
+
 	return (
-		<section className="w-full py-20 bg-[var(--primary-light)]">
+		<section className="w-full py-15 bg-[var(--primary-light)]">
 			<div className="max-w-4xl mx-auto px-4 md:px-8">
-				<AnimatedContent distance={40} duration={0.7} threshold={0.3} className="w-full">
+				<AnimatedContent
+					distance={40}
+					duration={0.7}
+					threshold={0.3}
+					className="w-full">
 					<button
 						onClick={() => setOpen(true)}
 						className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl group cursor-pointer block"
@@ -29,9 +64,7 @@ const VideoSection = () => {
 							fill
 							className="object-cover transition-transform duration-500 group-hover:scale-105"
 						/>
-						{/* Dark overlay */}
 						<span className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300" />
-						{/* Play button */}
 						<span className="absolute inset-0 flex items-center justify-center">
 							<span className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
 								<i className="fa-solid fa-play text-[var(--primary-color)] text-2xl pl-1" />
@@ -41,31 +74,7 @@ const VideoSection = () => {
 				</AnimatedContent>
 			</div>
 
-			{/* Modal */}
-			{open && (
-				<div
-					className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-					onClick={() => setOpen(false)}>
-					<div
-						className="relative w-[min(100%,calc(90svh*16/9))] aspect-video"
-						onClick={(e) => e.stopPropagation()}>
-						<iframe
-							className="absolute inset-0 w-full h-full rounded-2xl"
-							src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
-							title="YouTube video player"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-							referrerPolicy="strict-origin-when-cross-origin"
-							allowFullScreen
-						/>
-						<button
-							onClick={() => setOpen(false)}
-							className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors cursor-pointer"
-							aria-label="Bezárás">
-							<i className="fa-solid fa-xmark text-2xl" />
-						</button>
-					</div>
-				</div>
-			)}
+			{mounted && open && createPortal(modal, document.body)}
 		</section>
 	);
 };

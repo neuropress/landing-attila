@@ -14,7 +14,7 @@ const Hero = () => {
 					komplex terápia
 				</p>
 				<div>
-					<span className="text-2xl text-primary font-medium my-4 inline-block">
+					<span className="text-xl md:text-2xl text-primary font-medium my-5 inline-block">
 						<i className="fas fa-location-dot mr-2" />
 						Budapest - Szeged - Kecskemét
 					</span>
