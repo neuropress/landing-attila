@@ -293,11 +293,16 @@ const Stories = () => {
 							</button>
 						</>
 					)}
-					<div className="w-full h-16 flex items-center justify-center mt-10">
-						<a
-							href="#contact"
-							className="primary-button inline-block mx-auto py-2">
+					<div className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+						<a href="#contact" className="primary-button inline-block py-2">
 							Szeretnék én is jól lenni!
+						</a>
+						<a
+							href="https://www.neuropress.hu/siker-torteneteink/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="white-button bg-transparent! inline-block py-1.5">
+							Nézd meg az összes sikertörténetet
 						</a>
 					</div>
 				</FadeContent>
