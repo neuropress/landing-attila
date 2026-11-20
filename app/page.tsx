@@ -13,6 +13,7 @@ import Contact from "./components/Contact";
 
 export default function Home() {
 	return (
+		// Just for commit
 		<main className="relative z-10">
 			<Hero />
 			<Symptoms2 />
