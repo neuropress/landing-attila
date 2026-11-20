@@ -26,7 +26,7 @@ const Footer = () => {
 			<div className="max-w-7xl mx-auto px-8 sm:px-4 py-16">
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 					<div className="flex flex-col gap-5">
-						<Link href="/" className="inline-block w-fit">
+						<Link href="/" prefetch={false} className="inline-block w-fit">
 							<Image
 								src="/logos/3.webp"
 								alt="Neuropress Logo"
@@ -88,7 +88,7 @@ const Footer = () => {
 						<ul className="flex flex-col gap-3">
 							{legalLinks.map((link) => (
 								<li key={link.href}>
-									<Link
+									<Link prefetch={false}
 										href={link.href}
 										className="text-sm font-light text-white/80 hover:text-white transition-colors duration-200 flex items-center gap-2 group">
 										<i className="fa-solid fa-chevron-right text-xs text-white/40 group-hover:text-white/70 transition-colors" />

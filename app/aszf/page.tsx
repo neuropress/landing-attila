@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Aszf() {
 	return (
 		<main className="max-w-3xl mx-auto px-8 py-24 min-h-screen">
-			<Link
+			<Link prefetch={false}
 				href="/"
 				className="text-sm text-gray-400 hover:text-gray-700 transition-colors mb-8 inline-block">
 				← Vissza a főoldalra
